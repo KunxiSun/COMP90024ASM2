@@ -1,39 +1,61 @@
 # Common vars
 availability_zone: melbourne-qh2-uom
+docker_vol_size: 10
+data_vol_size: 100
+instance_num: 4
 
 # Volume
 volumes:
-  - vol_name: demo-vol-1-1
-    vol_size: 10
-  - vol_name: demo-vol-1-2
-    vol_size: 10
-  - vol_name: demo-vol-2-1
-    vol_size: 10
-  - vol_name: demo-vol-2-2
-    vol_size: 10
+  - vol_name: docker-1
+    vol_size: '{{ docker_vol_size }}'
+  - vol_name: docker-2
+    vol_size: '{{docker_vol_size}}'
+  - vol_name: docker-3
+    vol_size: '{{docker_vol_size}}'
+  - vol_name: docker-4
+    vol_size: '{{docker_vol_size}}'
+  - vol_name: data-1
+    vol_size: '{{data_vol_size}}'
+  - vol_name: data-2
+    vol_size: '{{data_vol_size}}'
+  - vol_name: data-3
+    vol_size: '{{data_vol_size}}'
+  - vol_name: data-4
+    vol_size: '{{data_vol_size}}'
 
 # Security group
 security_groups:
-  - name: demo_ssh
-    description: "Demo security group for SSH access"
+  - name: ssh_defaault
+    description: "Default ssh rule for all connection "
     protocol: tcp
     port_range_min: 22
     port_range_max: 22
     remote_ip_prefix: 0.0.0.0/0
-  - name: demo_http
-    description: "Demo security group for HTTP"
+  - name: http_default
+    description: "Default http rule for all connection"
     protocol: tcp
     port_range_min: 80
     port_range_max: 80
     remote_ip_prefix: 0.0.0.0/0
+  - name: http_couchdb
+    description: "Default http rule for all connection"
+    protocol: tcp
+    port_range_min: 5984
+    port_range_max: 5984
+    remote_ip_prefix: 0.0.0.0/0
 
 # Instance
 instances:
-  - name: demo-1
-    volumes: ['demo-vol-1-1', 'demo-vol-1-2']
-  - name: demo-2
-    volumes: ['demo-vol-2-1', 'demo-vol-2-2']
+  - name: instance-1
+    volumes: ['data-1', 'docker-1']
+  - name: instance-2
+    volumes: ['data-2', 'docker-2']
+  - name: instance-3
+    volumes: ['data-3', 'docker-3']
+  - name: instance-4
+    volumes: ['data-4', 'docker-4']
 
 instance_image: f8b79936-6616-4a22-b55d-0d0a1d27bceb
 instance_key_name: id-asm2
-instance_flavor: uom.general.2c8g
+instance_flavor: uom.mse.1c4g
+instance_flavor-adv: uom.mse.2c9g
