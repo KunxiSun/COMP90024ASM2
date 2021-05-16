@@ -11,7 +11,7 @@
       wait: yes
       timeout: 600
       state: present
-    loop: '{{ instance }}'
+    loop: '{{ instances }}'
     register: os_instance
 
   - debug:
