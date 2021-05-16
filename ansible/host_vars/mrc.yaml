@@ -57,7 +57,7 @@ instances:
   - name: instance-3
     volumes: ['data-3', 'docker-3']
     flavor: uom.mse.2c9g
-  - name: uom.mse.2c9g
+  - name: instance-4
     volumes: ['data-4', 'docker-4']
     flavor: uom.mse.2c9g
 
