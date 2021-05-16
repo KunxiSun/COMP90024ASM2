@@ -1,0 +1,8 @@
+  - hosts: test
+    become: yes
+    vars_files:
+      - host_vars/docker.yaml
+
+    roles:
+      - role: proxy-modification
+      - role: docker
