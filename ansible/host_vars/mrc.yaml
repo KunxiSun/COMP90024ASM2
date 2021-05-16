@@ -27,7 +27,7 @@ volumes:
 
 # Security group
 security_groups:
-  - name: ssh_defaault
+  - name: ssh_default
     description: "Default ssh rule for all connection "
     protocol: tcp
     port_range_min: 22
