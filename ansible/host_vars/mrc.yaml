@@ -1,8 +1,10 @@
 # Common vars
 availability_zone: melbourne-qh2-uom
 docker_vol_size: 10
-data_vol_size: 100
+data_vol_size: 50
 instance_num: 4
+
+interpreter_path: /usr/bin/python3.8
 
 # Volume
 volumes:

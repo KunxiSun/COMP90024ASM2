@@ -1,6 +1,6 @@
   - hosts: localhost
     vars:
-      ansible_python_interpreter: /Users/devil/opt/anaconda3/bin/python3
+      ansible_python_interpreter: '{{interpreter_path}}'
 
     vars_files:
       - host_vars/mrc.yaml
