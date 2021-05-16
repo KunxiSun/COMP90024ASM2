@@ -48,14 +48,18 @@ security_groups:
 instances:
   - name: instance-1
     volumes: ['data-1', 'docker-1']
+    flavor: uom.mse.1c4g
   - name: instance-2
     volumes: ['data-2', 'docker-2']
+    flavor: uom.mse.2c9g
   - name: instance-3
     volumes: ['data-3', 'docker-3']
-  - name: instance-4
+    flavor: uom.mse.2c9g
+  - name: uom.mse.2c9g
     volumes: ['data-4', 'docker-4']
+    flavor: uom.mse.2c9g
 
 instance_image: f8b79936-6616-4a22-b55d-0d0a1d27bceb
 instance_key_name: id-asm2
-instance_flavor: uom.mse.1c4g
-instance_flavor-adv: uom.mse.2c9g
+# instance_flavor: uom.mse.1c4g
+# instance_flavor-adv: uom.mse.2c9g
