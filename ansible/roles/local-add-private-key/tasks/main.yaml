@@ -1,4 +1,4 @@
-  - name: add key to local host
-    copy:
-      src: "ansible/roles/local-add-private-key/id-asm2"
-      dest: "~/.ssh/"
+  # - name: add key to local host
+  #   copy:
+  #     src: "ansible/roles/local-add-private-key/id-asm2"
+  #     dest: "~/.ssh/"

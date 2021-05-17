@@ -6,8 +6,6 @@
       name: ['docker', 'docker-engine', 'docker.io']
       state: absent
 
-
-
   - name: Add Docker GPG apt Key
     apt_key:
       url: https://download.docker.com/linux/ubuntu/gpg
@@ -68,14 +66,13 @@
       name: "{{ docker_container_image }}"
       source: pull
 
-
-  - name: Create docker containers
-    docker_container:
-      name: "{{ docker_container_name }}{{ item }}"
-      image: "{{ docker_container_image }}"
-      command: "{{ docker_container_command }}"
-      state: present
-    with_sequence: count={{ docker_containers_size }}
+  # - name: Create docker containers
+  #   docker_container:
+  #     name: "{{ docker_container_name }}{{ item }}"
+  #     image: "{{ docker_container_image }}"
+  #     command: "{{ docker_container_command }}"
+  #     state: present
+  #   with_sequence: count={{ docker_containers_size }}
 
   # - name: Create volumes
 

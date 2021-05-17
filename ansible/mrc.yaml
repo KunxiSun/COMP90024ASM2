@@ -3,9 +3,7 @@
       ansible_python_interpreter: '{{interpreter_path}}'
 
     vars_files:
-      - host_vars/mrc.yaml
-    vars:
-      ansible_ssh_private_key_file: "{{ private_key_path }}"
+      - host_vars/local-common.yaml
     gather_facts: true
 
     roles:
@@ -19,17 +17,16 @@
   - hosts: cloud
     become: yes
     vars_files:
-      - host_vars/cloud.yaml
-      - host_vars/docker.yaml
-      - host_vars/couchdb.yaml
+      - host_vars/cloud-common.yaml
+      - host_vars/cloud-docker.yaml
+      - host_vars/cloud-couchdb.yaml
     gather_facts: true
-
+    
     roles:
-      - role: proxy-modification
-      - role: cloud-install-dependencies
-      # - role: mount-disk
-      - role: cloud-install-docker
-      - role: cloud-install-couchdb
-      #- role: cloud-run-couchdb
+      # - role: proxy-modification
+      # - role: cloud-install-dependencies
+      # - role: cloud-install-docker
+      # - role: cloud-install-couchdb
+      - role: cloud-run-couchdb
       # - role: cloud-deploy-harvester
       # - role: cloud-deploy-web

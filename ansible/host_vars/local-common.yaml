@@ -3,7 +3,7 @@ availability_zone: melbourne-qh2-uom
 docker_vol_size: 10
 data_vol_size: 50
 instance_key_name: id-asm2
-private_key_path: ~/.ssh/id-asm2
+ansible_ssh_private_key_file: ~/.ssh/id-asm2
 interpreter_path: /usr/bin/python3.8
 
 instance_image: f8b79936-6616-4a22-b55d-0d0a1d27bceb
@@ -14,16 +14,16 @@ instance_image: f8b79936-6616-4a22-b55d-0d0a1d27bceb
 volumes:
   - vol_name: docker-1
     vol_size: '{{ docker_vol_size }}'
-  # - vol_name: docker-2
-  #   vol_size: '{{docker_vol_size}}'
+  - vol_name: docker-2
+    vol_size: '{{docker_vol_size}}'
   # - vol_name: docker-3
   #   vol_size: '{{docker_vol_size}}'
   # - vol_name: docker-4
   #   vol_size: '{{docker_vol_size}}'
   - vol_name: data-1
     vol_size: '{{data_vol_size}}'
-  # - vol_name: data-2
-  #   vol_size: '{{data_vol_size}}'
+  - vol_name: data-2
+    vol_size: '{{data_vol_size}}'
   # - vol_name: data-3
   #   vol_size: '{{data_vol_size}}'
   # - vol_name: data-4
@@ -55,9 +55,9 @@ instances:
   - name: instance-1
     volumes: ['data-1', 'docker-1']
     flavor: uom.mse.1c4g
-  # - name: instance-2
-  #   volumes: ['data-2', 'docker-2']
-  #   flavor: uom.mse.2c9g
+  - name: instance-2
+    volumes: ['data-2', 'docker-2']
+    flavor: uom.mse.2c9g
   # - name: instance-3
   #   volumes: ['data-3', 'docker-3']
   #   flavor: uom.mse.2c9g
