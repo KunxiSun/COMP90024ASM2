@@ -1,22 +1,21 @@
 
 
-  - name: Choose the Coordinator Node
+  - name: Define the master node
     set_fact:
-      coordinator: "{{ groups['cloud'][0] }}"
+      master_node: "{{ groups['cloud'][0] }}"
 
-  - name: Othernodes as join nodes
+  - name: Define other nodes
     set_fact:
       other_nodes: "{{ other_nodes|default([]) + [item] }}"
-    when: item != coordinator
+    when: item != master_node
     with_items: "{{ groups['cloud'] }}"
 
-  
-# couchdb_username: admin
-# couchdb_password: admin
-# couchdb_image: ibmcom/couchdb3:3.1.1
-# couchdb_name: couchdb
-# couchdb_cookie: a192aeb9904e6590849337933b000c99
-# couchdb_port: 5984
+  - debug:
+      msg: "master_node node instance IPV4 {{ master_node }}"
+  - debug:
+      msg: "Other node instance IPV4 {{ other_nodes }}"
+  - debug:
+      msg: "Other node count {{ other_nodes|length }}"
 
   - name: Create couchdb container
     docker_container:
@@ -28,14 +27,16 @@
         COUCHDB_USER: "{{ couchdb_username }}"
         COUCHDB_PASSWORD: "{{couchdb_password}}"
         COUCHDB_SECRET: "{{couchdb_cookie}}"
+        NODE_NAME: "{{couchdb_name}}"
         # The following line is not executed????
-        ERL_FLAGS: "-setcookie {{couchdb_cookie}} -name {{couchdb_name}}"
+        # ERL_FLAGS: "-setcookie {{couchdb_cookie}} -name {{couchdb_name}}"
       exposed_ports:
-        - "{{ couchdb_port }}"
+        - "{{ couchdb_port }}:{{ couchdb_port }}"
+        - "9100:9100"
+        - "4369:4369"
       volumes:
         - /data:/opt/couchdb/data
-  - debug:
-      msg: "master_node node instance IPV4 in cloud host {{ master_node }}"
+ 
   - debug:
       msg: "{{ ansible_default_ipv4.address }}"
 
@@ -56,6 +57,7 @@
              \"remote_current_user\":\"{{couchdb_username}}\", \"remote_current_password\":\"{{couchdb_password}}\"}"
       headers:
         Content-Type: "application/json"
+    when: "{{ ansible_default_ipv4.address }}" != master_node
     # loop: "{{ groups['workers'] }}"
 
   - name: setup couchdb cluster | step 2
