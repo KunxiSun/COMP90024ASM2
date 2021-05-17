@@ -34,22 +34,26 @@
         - "{{ couchdb_port }}"
       volumes:
         - /data:/opt/couchdb/data
+  - debug:
+      msg: "master_node node instance IPV4 in cloud host {{ master_node }}"
+  - debug:
+      msg: "{{ ansible_default_ipv4.address }}"
 
   - name: setup couchdb cluster | step 1
     become: yes
     uri:
-      url: http://{{master_node}}:{{couchdb_port}}/{{cluster_name}}
+      url: http://{{couchdb_username}}:{{couchdb_password}}@{{master_node}}:{{couchdb_port}}/{{cluster_name}}
       status_code: 201 #?
       method: POST
       user: "{{ couchdb_username }}"
-      password:  "{{ couchdb_passwordd }}"
+      password:  "{{ couchdb_password }}"
       force_basic_auth: yes
       return_content: yes
       body_format: json
       body: "{\"action\": \"enable_cluster\", \"bind_address\":\"0.0.0.0\",\
-              \"username\": \"{{ couchdb_username }}\", \"password\":\"{{ couchdb_passwordd }}\", \"port\": \"{{couchdb_port}}\",\
-              \"remote_node\": \"{{ item }}\", \"node_count\": \"{{ groups['database'] | length }}\",\
-              \"remote_current_user\":\"{{ couchdb_user }}\", \"remote_current_password\":\"{{ couchdb_pass }}\"}"
+             \"username\": \"{{couchdb_username}}\", \"password\":\"{{couchdb_password}}\", \"port\": \"{{couchdb_port}}\",\
+             \"remote_node\": \"{{ ansible_default_ipv4.address }}\", \"node_count\":{{other_nodes|length}} \"} | wc -w)\",\
+             \"remote_current_user\":\"{{couchdb_username}}\", \"remote_current_password\":\"{{couchdb_password}}\"}"
       headers:
         Content-Type: "application/json"
     # loop: "{{ groups['workers'] }}"
@@ -57,11 +61,11 @@
   - name: setup couchdb cluster | step 2
     become: yes
     uri:
-      url: http://{{ groups['masternode'][0] }}:{{couchdb_port}}/{{ cluster_name }}
-      status_code: 201,409
+      url: http://{{couchdb_username}}:{{couchdb_passwordd}}@{{master_node}}:{{couchdb_port}}/{{cluster_name}}
+      status_code: 201,409 #??
       method: POST
-      user: "{{ couchdb_user }}"
-      password:  "{{ couchdb_pass }}"
+      user: "{{ couchdb_username }}"
+      password:  "{{ couchdb_password }}"
       force_basic_auth: yes
       return_content: yes
       body_format: json
@@ -69,7 +73,6 @@
               \"port\": \"{{ couchdb_port }}\", \"username\": \"{{ couchdb_user }}\", \"password\":\"{{ couchdb_pass }}\"}"
       headers:
         Content-Type: "application/json"
-    loop: "{{ groups['workers'] }}"
 
   - name: setup couchdb cluster | step 2.5
     become: yes

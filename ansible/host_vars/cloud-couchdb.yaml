@@ -5,6 +5,4 @@ couchdb_name: couchdb
 couchdb_cookie: a192aeb9904e6590849337933b000c99
 couchdb_port: '5984'
 
-
-master_node: 172.26.132.146
 cluster_name: clouchDB_cluster

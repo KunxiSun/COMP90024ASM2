@@ -43,13 +43,24 @@ security_groups:
     port_range_min: 80
     port_range_max: 80
     remote_ip_prefix: 0.0.0.0/0
-  - name: http_couchdb
-    description: "Default http rule for all connection"
+  - name: couchdb_5984
+    description: "Default http rule for couchdb"
     protocol: tcp
     port_range_min: 5984
     port_range_max: 5984
     remote_ip_prefix: 0.0.0.0/0
-
+  - name: couchdb_9100
+    description: "Default http rule for couchdb"
+    protocol: tcp
+    port_range_min: 9100 
+    port_range_max: 9200
+    remote_ip_prefix: 0.0.0.0/0
+  - name: couchdb_4369
+    description: "Default http rule for couchdb"
+    protocol: tcp
+    port_range_min: 4369 
+    port_range_max: 4369
+    remote_ip_prefix: 0.0.0.0/0
 # Instance
 instances:
   - name: instance-1

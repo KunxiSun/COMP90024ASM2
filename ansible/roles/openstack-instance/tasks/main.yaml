@@ -23,7 +23,7 @@
       other_nodes: "{{ other_nodes| default([]) + [os_instance.results[item].openstack.public_v4] }}"
     loop: "{{ range(1, 2) | list }}"
 
-  # check master_node
+  # # check master_node
   - debug:
       msg: "print length {{ os_instance.results|length }}"
   - debug:
