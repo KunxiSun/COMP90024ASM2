@@ -14,8 +14,9 @@
     loop: '{{ instances }}'
     register: os_instance
 
+  # check ip
   - debug:
-      msg: "Instance {{ item.openstack.name }} has been created. IP address "
+      msg: "Instance {{ item.openstack.name }} has been created. IP address is {{ item.openstack.public_v4 }}"
     loop: '{{ os_instance.results }}'
     when: item.openstack is defined
 
@@ -25,5 +26,12 @@
       port: 22
       timeout: 120
       search_regex: OpenSSH
+    loop: '{{ os_instance.results }}'
+    when: item.openstack is defined
+
+  - name: Add host
+    add_host:
+      name: '{{ item.openstack.public_v4 }}'
+      groups: cloud
     loop: '{{ os_instance.results }}'
     when: item.openstack is defined
