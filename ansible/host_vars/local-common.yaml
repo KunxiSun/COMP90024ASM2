@@ -16,16 +16,16 @@ volumes:
     vol_size: '{{ docker_vol_size }}'
   - vol_name: docker-2
     vol_size: '{{docker_vol_size}}'
-  # - vol_name: docker-3
-  #   vol_size: '{{docker_vol_size}}'
+  - vol_name: docker-3
+    vol_size: '{{docker_vol_size}}'
   # - vol_name: docker-4
   #   vol_size: '{{docker_vol_size}}'
   - vol_name: data-1
     vol_size: '{{data_vol_size}}'
   - vol_name: data-2
     vol_size: '{{data_vol_size}}'
-  # - vol_name: data-3
-  #   vol_size: '{{data_vol_size}}'
+  - vol_name: data-3
+    vol_size: '{{data_vol_size}}'
   # - vol_name: data-4
   #   vol_size: '{{data_vol_size}}'
 
@@ -65,13 +65,13 @@ security_groups:
 instances:
   - name: instance-1
     volumes: ['data-1', 'docker-1']
-    flavor: uom.mse.1c4g
+    flavor: uom.mse.2c9g
   - name: instance-2
     volumes: ['data-2', 'docker-2']
     flavor: uom.mse.2c9g
-  # - name: instance-3
-  #   volumes: ['data-3', 'docker-3']
-  #   flavor: uom.mse.2c9g
+  - name: instance-3
+    volumes: ['data-3', 'docker-3']
+    flavor: uom.mse.2c9g
   # - name: instance-4
   #   volumes: ['data-4', 'docker-4']
   #   flavor: uom.mse.2c9g
