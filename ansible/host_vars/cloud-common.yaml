@@ -1,3 +1,19 @@
+# Ansible
 ansible_python_interpreter: /usr/bin/python3
 ansible_user: ubuntu
 ansible_ssh_private_key_file: ~/.ssh/id-asm2
+
+# Docker
+docker_containers_size: 4
+docker_container_name: docker
+docker_container_image: ubuntu
+docker_container_command: sleep 1d
+
+# Couch DB
+couchdb_username: admin
+couchdb_password: admin
+couchdb_image: ibmcom/couchdb3:3.1.1
+couchdb_name: couchdb
+couchdb_cookie: a192aeb9904e6590849337933b000c99
+couchdb_port: '5984'
+cluster_name: clouchDB_cluster
