@@ -71,7 +71,7 @@
       body_format: json
       body: "{\"action\": \"enable_cluster\", \"bind_address\":\"0.0.0.0\",\
              \"username\": \"{{couchdb_username}}\", \"password\":\"{{couchdb_password}}\", \"port\": \"{{couchdb_port}}\",\
-             \"remote_node\": \"{{ ansible_default_ipv4.address }}\", \"node_count\": \"3\", \
+             \"remote_node\": \"{{ ansible_default_ipv4.address }}\", \"node_count\": \"{{ groups['cloud']|length }}\", \
              \"remote_current_user\":\"{{couchdb_username}}\", \"remote_current_password\":\"{{couchdb_password}}\"}"
       headers:
         Content-Type: "application/json"
