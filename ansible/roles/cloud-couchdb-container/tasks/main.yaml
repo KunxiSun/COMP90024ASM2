@@ -1,0 +1,4 @@
+  - name: Remove existed couchdb container
+    docker_container:
+      name: "couchdb{{ ansible_default_ipv4.address }}"
+      state: absent

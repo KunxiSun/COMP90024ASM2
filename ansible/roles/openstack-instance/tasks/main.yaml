@@ -14,33 +14,6 @@
     loop: '{{ instances }}'
     register: os_instance
 
-
-  # - name: define master node
-  #   set_fact:
-  #     master_node: "{{os_instance.results[0].openstack.public_v4}}"
-  
-  # - name: define other nodes
-  #   set_fact:
-  #     other_nodes: "{{ other_nodes| default([]) + [os_instance.results[item].openstack.public_v4] }}"
-  #   loop: "{{ range(1, 2) | list }}"
-
-  # # check master_node
-  # - debug:
-  #     msg: "print length {{ os_instance.results|length }}"
-  # - debug:
-  #     msg: "master_node node instance IPV4 {{ master_node }}"
-  #  # check other_nodes
-  # - debug:
-  #     msg: "Other node instance IPV4 {{ other_nodes }}"
-  # - debug:
-  #     msg: "Other node count {{ other_nodes|length }}"
-
-  # check ip
-  # - debug:
-  #     msg: "Instance {{ item.openstack.name }} has been created. IP address is {{ item.openstack.public_v4 }}"
-  #   loop: '{{ os_instance.results }}'
-  #   when: item.openstack is defined
-
   - name: Wait for connection
     wait_for:
       host: "{{ item.openstack.public_v4 }}"
@@ -50,7 +23,7 @@
     loop: '{{ os_instance.results }}'
     when: item.openstack is defined
 
-  - name: Add host
+  - name: Add hosts
     add_host:
       name: '{{ item.openstack.public_v4 }}'
       groups: cloud
