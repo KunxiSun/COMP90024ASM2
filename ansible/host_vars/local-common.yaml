@@ -4,7 +4,7 @@ docker_vol_size: 10
 data_vol_size: 50
 instance_key_name: id-asm2
 ansible_ssh_private_key_file: ~/.ssh/id-asm2
-interpreter_path: /Users/devil/opt/anaconda3/bin/python3
+interpreter_path: /usr/bin/python3
 
 instance_image: f8b79936-6616-4a22-b55d-0d0a1d27bceb
 # instance_flavor: uom.mse.1c4g

@@ -1,1 +1,1 @@
-. ./kunxis-openrc.sh; ansible-playbook mrc.yaml
+. ./kunxis-openrc.sh; ansible-playbook mrc.yaml -vvv
