@@ -35,13 +35,13 @@
              \"remote_current_user\":\"{{couchdb_username}}\", \"remote_current_password\":\"{{couchdb_password}}\"}"
       headers:
         Content-Type: "application/json"
-    when: master_node != ansible_default_ipv4.address
+    when: ansible_default_ipv4.address != master_node
 
 
   - name: Setup couchdb cluster | step 2
     become: yes
     uri:
-      url: http://{{couchdb_username}}:{{couchdb_password}}@{{master_node}}:{{couchdb_port}}/_cluster_setup
+      url: http://{{master_node}}:{{couchdb_port}}/_cluster_setup
       status_code: 201,409 #??
       method: POST
       user: "{{ couchdb_username }}"
@@ -53,12 +53,12 @@
               \"port\": \"{{ couchdb_port }}\", \"username\": \"{{ couchdb_username }}\", \"password\":\"{{ couchdb_password }}\"}"
       headers:
         Content-Type: "application/json"
-    when: master_node != ansible_default_ipv4.address
+    when: ansible_default_ipv4.address != master_node
 
   - name: Send an empty request | step 1
     become: yes
     uri:
-      url: http://{{ master_node }}:{{couchdb_port}}/
+      url: http://{{ master_node }}:{{ couchdb_port }}/
       status_code: 200,201,409
       method: GET
       user: "{{ couchdb_username }}"
