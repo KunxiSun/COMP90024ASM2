@@ -41,7 +41,7 @@
   - name: Setup couchdb cluster | step 2
     become: yes
     uri:
-      url: http://{{master_node}}:{{couchdb_port}}/_cluster_setup
+      url: http://{{ master_node }}:{{ couchdb_port }}/_cluster_setup
       status_code: 201,409 #??
       method: POST
       user: "{{ couchdb_username }}"
@@ -65,6 +65,7 @@
       password:  "{{ couchdb_password }}"
       force_basic_auth: yes
       return_content: yes
+    when: ansible_default_ipv4.address == master_node
 
   - name: Send an empty request | step 2
     become: yes
@@ -80,3 +81,4 @@
       body: "{\"action\": \"finish_cluster\"}"
       headers:
         Content-Type: "application/json"
+    when: ansible_default_ipv4.address == master_node

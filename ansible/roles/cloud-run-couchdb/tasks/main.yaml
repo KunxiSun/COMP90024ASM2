@@ -23,4 +23,3 @@
         - "9100-9200:9100-9200"
       volumes:
         - /data
-#        - /data:/opt/couchdb/data

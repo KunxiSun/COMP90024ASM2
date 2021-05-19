@@ -1,0 +1,8 @@
+
+  - name: Attach volume to instance
+    os_server_volume:
+      volume: '{{ item.volumes[0] }}'
+      server: '{{ item.name }}'
+      device: "/dev/vdb"
+      state: present
+    loop: '{{ instances }}'
