@@ -61,8 +61,8 @@
       daemon_reload: yes
       state: restarted
 
-  - name: Pull Docker image
-    docker_image:
-      name: "{{ docker_container_image }}"
-      source: pull
+#  - name: Pull Docker image
+#    docker_image:
+#      name: "{{ docker_container_image }}"
+#      source: pull
 

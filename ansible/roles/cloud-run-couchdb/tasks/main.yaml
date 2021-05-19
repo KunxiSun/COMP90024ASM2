@@ -1,24 +1,8 @@
-
-
-  - name: Define the master node
-    set_fact:
-      master_node: "{{ groups['cloud'][0] }}"
-
-  - name: Define other nodes
-    set_fact:
-      other_nodes: "{{ other_nodes|default([]) + [item] }}"
-    when: item != master_node
-    with_items: "{{ groups['cloud'] }}"
-
-  - debug:
-      msg: 
-        "Node count: {{ groups['cloud']|length }} master_node node is: {{ master_node }} other nodes are {{ other_nodes }}"
-
-  - name: Stop existed couchdb container
-    docker_container:
-      name: "couchdb{{ ansible_default_ipv4.address }}"
-      image: "{{couchdb_image}}"
-      state: stopped
+#  - name: Stop existed couchdb container
+#    docker_container:
+#      name: "couchdb{{ ansible_default_ipv4.address }}"
+#      image: "{{couchdb_image}}"
+#      state: stopped
 
   - name: Remove existed couchdb container
     docker_container:
@@ -26,22 +10,13 @@
       image: "{{couchdb_image}}"
       state: absent
 
-#  - name: unset proxy
-#    become: yes
-#    shell: '
-#            unset http_proxy
-#
-#            unset https_proxy
-#
-#            unset ftp_proxy
-#            '
-
   - name: Create couchdb container
     docker_container:
       name: "couchdb{{ ansible_default_ipv4.address }}"
       image: "{{couchdb_image}}"
       state: started
       recreate: true
+      pull: yes
       env:
         COUCHDB_USER: "{{ couchdb_username }}"
         COUCHDB_PASSWORD: "{{couchdb_password}}"
@@ -54,69 +29,3 @@
       volumes:
         - /data
 #        - /data:/opt/couchdb/data
- 
-  - debug:
-      msg: "{{ ansible_default_ipv4.address }}"
-
-  - name: Setup couchdb cluster | step 1
-    become: yes
-    uri:
-      url: http://{{ master_node }}:{{couchdb_port}}/_cluster_setup
-      status_code: 201
-      method: POST
-      user: "{{ couchdb_username }}"
-      password:  "{{ couchdb_password }}"
-      force_basic_auth: yes
-      return_content: yes
-      body_format: json
-      body: "{\"action\": \"enable_cluster\", \"bind_address\":\"0.0.0.0\",\
-             \"username\": \"{{couchdb_username}}\", \"password\":\"{{couchdb_password}}\", \"port\": \"{{couchdb_port}}\",\
-             \"remote_node\": \"{{ ansible_default_ipv4.address }}\", \"node_count\": \"{{ groups['cloud']|length }}\", \
-             \"remote_current_user\":\"{{couchdb_username}}\", \"remote_current_password\":\"{{couchdb_password}}\"}"
-      headers:
-        Content-Type: "application/json"
-    when: master_node != ansible_default_ipv4.address
-
-
-  - name: Setup couchdb cluster | step 2
-    become: yes
-    uri:
-      url: http://{{couchdb_username}}:{{couchdb_password}}@{{master_node}}:{{couchdb_port}}/_cluster_setup
-      status_code: 201,409 #??
-      method: POST
-      user: "{{ couchdb_username }}"
-      password:  "{{ couchdb_password }}"
-      force_basic_auth: yes
-      return_content: yes
-      body_format: json
-      body: "{\"action\": \"add_node\", \"host\":\"{{ ansible_default_ipv4.address }}\",\
-              \"port\": \"{{ couchdb_port }}\", \"username\": \"{{ couchdb_username }}\", \"password\":\"{{ couchdb_password }}\"}"
-      headers:
-        Content-Type: "application/json"
-    when: master_node != ansible_default_ipv4.address
-
-  - name: Send an empty request | step 1
-    become: yes
-    uri:
-      url: http://{{ master_node }}:{{couchdb_port}}/
-      status_code: 200,201,409
-      method: GET
-      user: "{{ couchdb_username }}"
-      password:  "{{ couchdb_password }}"
-      force_basic_auth: yes
-      return_content: yes
-
-  - name: Send an empty request | step 2
-    become: yes
-    uri:
-      url: http://{{ master_node }}:{{ couchdb_port }}/_cluster_setup
-      status_code: 201
-      method: POST
-      user: "{{ couchdb_username }}"
-      password:  "{{ couchdb_password }}"
-      force_basic_auth: yes
-      return_content: yes
-      body_format: json
-      body: "{\"action\": \"finish_cluster\"}"
-      headers:
-        Content-Type: "application/json"

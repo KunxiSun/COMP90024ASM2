@@ -1,4 +1,0 @@
-  - name: Pull couchdb docker image
-    become: yes
-    tags: 'couchdb'
-    command: docker pull "{{couchdb_image}}"
