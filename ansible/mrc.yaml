@@ -22,9 +22,9 @@
     
     roles:
 #      - role: proxy-modification
-      - role: cloud-install-dependencies
-      - role: cloud-install-docker
-      - role: cloud-run-couchdb
+#      - role: cloud-install-dependencies
+#      - role: cloud-install-docker
+#      - role: cloud-run-couchdb
       - role: cloud-setup-cluster
 #      - role: cloud-deploy-harvester
 #      - role: cloud-deploy-web
