@@ -1,0 +1,92 @@
+# Common vars
+availability_zone: melbourne-qh2-uom
+#docker_vol_size: 10
+data_vol_size: 100
+instance_key_name: id-asm2
+ansible_ssh_private_key_file: ~/.ssh/id-asm2
+#interpreter_path: /usr/bin/python3
+interpreter_path: /Users/devil/opt/anaconda3/bin/python3
+
+instance_image: f8b79936-6616-4a22-b55d-0d0a1d27bceb
+# instance_flavor: uom.mse.1c4g
+# instance_flavor-adv: uom.mse.2c9g
+
+# Volume
+volumes:
+#  - vol_name: docker-1
+#    vol_size: '{{ docker_vol_size }}'
+#  - vol_name: docker-2
+#    vol_size: '{{docker_vol_size}}'
+#  - vol_name: docker-3
+#    vol_size: '{{docker_vol_size}}'
+#  - vol_name: docker-4
+#    vol_size: '{{docker_vol_size}}'
+  - vol_name: data-1
+    vol_size: '{{data_vol_size}}'
+  - vol_name: data-2
+    vol_size: '{{data_vol_size}}'
+  - vol_name: data-3
+    vol_size: '{{data_vol_size}}'
+  - vol_name: data-4
+    vol_size: '{{data_vol_size}}'
+
+security_groups:
+  - name: remote_connection
+    description: "SSH and http rules for remote connection"
+  - name: couchdb_cluster
+    description: "Open port for communication between nodes in couchdb cluster"
+
+
+remote_security_group_rules:
+  - name: remote_connection
+    protocol: tcp
+    port_range_min: 22
+    port_range_max: 22
+    remote_ip_prefix: 0.0.0.0/0
+  - name: remote_connection
+    protocol: tcp
+    port_range_min: 80
+    port_range_max: 80
+    remote_ip_prefix: 0.0.0.0/0
+  - name: remote_connection
+    protocol: tcp
+    port_range_min: 5984
+    port_range_max: 5984
+    remote_ip_prefix: 0.0.0.0/0
+
+cluster_security_group_rules:
+  - name: couchdb_cluster
+    protocol: tcp
+    port_range_min: 4369
+    port_range_max: 4369
+    remote_group: couchdb_cluster
+  - name: couchdb_cluster
+    protocol: tcp
+    port_range_min: 5984
+    port_range_max: 5984
+    remote_group: couchdb_cluster
+  - name: couchdb_cluster
+    protocol: tcp
+    port_range_min: 9100
+    port_range_max: 9200
+    remote_group: couchdb_cluster
+
+
+
+
+# Instance
+instances:
+  - name: instance-1
+    volumes: ['data-1']
+    flavor: uom.mse.2c9g
+  - name: instance-2
+    volumes: ['data-2']
+    flavor: uom.mse.2c9g
+  - name: instance-3
+    volumes: ['data-3']
+    flavor: uom.mse.2c9g
+  - name: instance-4
+    volumes: ['data-4']
+    flavor: uom.mse.1c4g
+
+
