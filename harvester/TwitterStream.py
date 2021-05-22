@@ -38,7 +38,7 @@ def get_result(response: dict) -> dict:
     check_none(doc,"location", get_data(response,["place","name"]) )
     check_none(doc,"location_fullname", get_data(response,["place","full_name"]))
     check_none(doc,"coordinates",get_data(response,["coordinates","coordinates"]))
-    check_none(doc,"hashtags",get_data(response,["entities","hashtags"]))
+    check_none(doc,"hastage",get_data(response,["entities","hashtags"]))
     return doc
 
 def write_json(json_str):
@@ -48,8 +48,8 @@ def write_json(json_str):
 
 
 #use filter stream select location
-##def filter_stream(api,db,keywords,boxes):
-def filter_stream(api,keywords,boxes):
+def filter_stream(api,db,keywords,boxes):
+#def filter_stream(api,keywords,boxes):
     count=0
     #track_term delimited by ","
     TRACK_TERM=",".join(keywords)
@@ -66,22 +66,23 @@ def filter_stream(api,keywords,boxes):
             for response in r:
                 #use dict doc to store results
                 doc=get_result(response)
-                if not doc:                 
-                    print ("didn't get ideal response, try again")
+                if not doc:      
+                    print(response)           
+                    print ("There exist some error, try again")
                     continue 
                 json_doc = json.dumps(doc)          
                 
-                write_json(json_doc)
-                ##db.save(doc)
+                #write_json(json_doc)
+                db.save(doc)
                 count+=1
-                if count==1:
-                    break
-                    #print(doc)
+                #if count==1:
+                    #break
+                #    print(doc)
                 if count % 100 ==0:
                     print (count)
         #Ignore the existence of the same id
-        ##except couchdb.http.ResourceConflict:
-        ##    pass
+        except couchdb.http.ResourceConflict:
+            pass
         except TwitterAPI.TwitterError.TwitterRequestError as e:
             if e.status_code < 500:
                 time.sleep(60)
