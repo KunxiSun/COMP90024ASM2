@@ -13,7 +13,7 @@
       - role: openstack-security-group
 #      - role: local-add-private-key
       - role: openstack-instance
-      - role: attach-volume
+      # - role: attach-volume
 
 
   - hosts: cloud
@@ -23,8 +23,8 @@
     gather_facts: true
     
     roles:
-      - role: format-volume
-      - role: mount-volume
+      # - role: format-volume
+      # - role: mount-volume
 #      - role: modify-proxy
 #      - role: cloud-install-docker-dependencies
 #      - role: cloud-install-docker
