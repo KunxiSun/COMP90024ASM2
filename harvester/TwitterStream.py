@@ -38,11 +38,7 @@ def get_result(response: dict) -> dict:
     check_none(doc,"location", get_data(response,["place","name"]) )
     check_none(doc,"location_fullname", get_data(response,["place","full_name"]))
     check_none(doc,"coordinates",get_data(response,["coordinates","coordinates"]))
-<<<<<<< HEAD
     check_none(doc,"hastage",get_data(response,["entities","hashtags"]))
-=======
-    check_none(doc,"hashtags",get_data(response,["entities","hashtags"]))
->>>>>>> a7df4af94c4ea876a69ebfde089d779b8f2dc27c
     return doc
 
 def write_json(json_str):
@@ -52,13 +48,8 @@ def write_json(json_str):
 
 
 #use filter stream select location
-<<<<<<< HEAD
 def filter_stream(api,db,keywords,boxes):
 #def filter_stream(api,keywords,boxes):
-=======
-##def filter_stream(api,db,keywords,boxes):
-def filter_stream(api,keywords,boxes):
->>>>>>> a7df4af94c4ea876a69ebfde089d779b8f2dc27c
     count=0
     #track_term delimited by ","
     TRACK_TERM=",".join(keywords)
@@ -75,7 +66,6 @@ def filter_stream(api,keywords,boxes):
             for response in r:
                 #use dict doc to store results
                 doc=get_result(response)
-<<<<<<< HEAD
                 if not doc:      
                     print(response)           
                     print ("There exist some error, try again")
@@ -88,19 +78,6 @@ def filter_stream(api,keywords,boxes):
                 #if count==1:
                     #break
                 #    print(doc)
-=======
-                if not doc:                 
-                    print ("didn't get ideal response, try again")
-                    continue 
-                json_doc = json.dumps(doc)          
-                
-                write_json(json_doc)
-                ##db.save(doc)
-                count+=1
-                #if count==1:
-                    #break
-                    #print(doc)
->>>>>>> a7df4af94c4ea876a69ebfde089d779b8f2dc27c
                 if count % 100 ==0:
                     print (count)
         #Ignore the existence of the same id
