@@ -14,7 +14,7 @@
   - debug:
       msg: "Security groups {{ sg_names }} has been created."
 
-  - name: Create security group rules
+  - name: Create remote security group rules
     os_security_group_rule:
       security_group: '{{ item.name }}'
       protocol: '{{ item.protocol }}'
@@ -22,4 +22,15 @@
       port_range_max: '{{ item.port_range_max }}'
       remote_ip_prefix: '{{ item.remote_ip_prefix }}'
       state: present
-    loop: '{{ security_groups }}'
+    loop: '{{ remote_security_group_rules }}'
+
+
+  - name: Create cluster security group rules
+    os_security_group_rule:
+      security_group: '{{ item.name }}'
+      protocol: '{{ item.protocol }}'
+      port_range_min: '{{ item.port_range_min }}'
+      port_range_max: '{{ item.port_range_max }}'
+      remote_group: '{{ item.remote_group }}'
+      state: present
+    loop: '{{ cluster_security_group_rules }}'

@@ -1,0 +1,6 @@
+
+  - name: Create file system ext4 on volume
+    filesystem:
+      dev: "/dev/vdb"
+      fstype: ext4
+      state: present

@@ -1,0 +1,15 @@
+# Ansible
+ansible_python_interpreter: /usr/bin/python3
+ansible_user: ubuntu
+ansible_ssh_private_key_file: ~/.ssh/id-asm2
+
+# Docker
+
+# Couch DB
+couchdb_username: admin
+couchdb_password: admin
+couchdb_image: ibmcom/couchdb3:3.1.1
+couchdb_name: couchdb
+couchdb_cookie: a192aeb9904e6590849337933b000c99
+couchdb_port: '5984'
+
