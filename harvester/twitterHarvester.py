@@ -1,27 +1,29 @@
-from os import stat_result
 from TwitterAPI import TwitterAPI
 import TwitterStream
 import couchdb 
 import config
 
-#load variables from json
-consumer_key = config.consumer_key
-consumer_secret = config.consumer_secret
-access_token = config.access_token
-access_token_secret = config.access_token_secret
-keywords = config.keywords
-#boxes = config.melbourne_city
-boxes = config.box_melb
-url = config.db_url
-##dbname = config.db_name
-#connect to db server
-##couch = couchdb.Server(url)
-#connect to database
-##db = couch[dbname]
-#create TwitterAPI object
-api = TwitterAPI(consumer_key,
-                 consumer_secret,
-                 access_token,
-                 access_token_secret)
-##TwitterStream.filter_stream(api,db,keywords,boxes)
-TwitterStream.filter_stream(api,keywords,boxes)
+
+def main():
+    #load variables from config
+    keywords = config.keywords
+    boxes = config.box_melb
+    #boxes = config.melbourne_city
+
+    #connect to db server
+    couch = couchdb.Server(config.couchdb_url)
+
+    #connect to database
+    db = couch[config.couchdb_name]
+
+    #create TwitterAPI object
+    api = TwitterAPI(config.consumer_key,
+                    config.consumer_secret,
+                    config.access_token,
+                    config.access_token_secret)
+    TwitterStream.filter_stream(api,db,keywords,boxes)
+
+if __name__ == "__main__":
+    main()
+
+
