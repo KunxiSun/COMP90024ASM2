@@ -1,3 +1,6 @@
+### run
+python3 ./src/main.py
+
 ### Dependency
 tweepy
 couchdb

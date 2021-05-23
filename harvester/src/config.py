@@ -13,8 +13,13 @@ access_token = "1254697631600660480-12cqVeP49fcoL5RfmaDoeW0DjlRjvf"
 access_token_secret = "N0gfaDsqvwPlLVlRjGT0OSfWiJnMI9BRC9sSf6XfpBo8R" 
 bearer_token = "AAAAAAAAAAAAAAAAAAAAAJa9PAEAAAAAfXT1jiOVkwBjum1E1H5q7T%2F5nIE%3DpLoB8Be1X1EhUG1sZQrrRZ5tOsd1CDXPkFAi7vuXJc4b0fPMNc"
 
-##### Harvester key words
+##### Streaming API harvester variable
 keywords = [""] 
+
+##### Search API harvester variable
+search_query = ""
+search_since = "2016-01-01"
+search_until = "2020-05-16"
 
 #####  Australia Coodinates
 #box_au = "112.5,-37.5,154.1,-12.8" 

@@ -11,9 +11,9 @@ print(db)
 
 #create TwitterAPI object
 with open('./aurin/Smoothed_Unemployment_2010-2020.json', 'r', encoding="utf-8") as f:
-    # 读取所有行 每行会是一个字符串
+    # Read every lines
     for jsonstr in f.readlines():
-        # 将josn字符串转化为dict字典
+        # Convert dict to json
         jsonstr = json.loads(jsonstr)
         #tweet_id = jsonstr["id"]
         try:
