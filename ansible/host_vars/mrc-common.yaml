@@ -7,23 +7,15 @@ ansible_ssh_private_key_file: ~/.ssh/id-asm2
 interpreter_path: /usr/bin/python3
 # interpreter_path: /Users/devil/opt/anaconda3/bin/python3
 
-instance_count: 4
-couchdb_cluster_count: 3
+# instance_count: 4
+# couchdb_cluster_count: 3
 
 instance_image: f8b79936-6616-4a22-b55d-0d0a1d27bceb
-# instance_flavor: uom.mse.1c4g
-# instance_flavor-adv: uom.mse.2c9g
+instance_flavor_harvester: uom.mse.1c4g
+instance_flavor_couchdb: uom.mse.2c9g
 
 # Volume
 volumes:
-#  - vol_name: docker-1
-#    vol_size: '{{ docker_vol_size }}'
-#  - vol_name: docker-2
-#    vol_size: '{{docker_vol_size}}'
-#  - vol_name: docker-3
-#    vol_size: '{{docker_vol_size}}'
-#  - vol_name: docker-4
-#    vol_size: '{{docker_vol_size}}'
   - vol_name: data-1
     vol_size: '{{data_vol_size}}'
   - vol_name: data-2
@@ -83,9 +75,6 @@ cluster_security_group_rules:
     port_range_max: 9200
     remote_group: couchdb_cluster
 
-
-
-
 # Instance
 instances:
   - name: instance-1
@@ -100,5 +89,3 @@ instances:
   - name: instance-4
     volumes: ['data-4']
     flavor: uom.mse.1c4g
-
-

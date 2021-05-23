@@ -1,4 +1,4 @@
-  - name: Install dependencies
+  - name: Install dependencies for docker
     tags: always
     become: yes
     apt: 
@@ -6,4 +6,4 @@
       state: latest
       install_recommends: no
       update_cache: yes
-
+  

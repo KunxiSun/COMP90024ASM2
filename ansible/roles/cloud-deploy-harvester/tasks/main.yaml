@@ -1,0 +1,23 @@
+  - name: Install tweeter API packages
+    become: yes
+    pip:
+      name: ['tweepy', 'TwitterAPI', 'couchdb']
+
+  - name: git clone repository
+    git:
+      repo: "{{project_repo}}"
+      dest: "{{project_path}}"
+      accept_hostkey: yes
+      force: yes
+
+  - name: offer permission to directory
+    become: yes
+    file:
+      path: "{{project_path}}"
+      mode: '1777'
+      state: directory
+      recurse: yes
+
+  - name: run all the harvesters
+    shell: "python3 {{project_path}}/harvester/src/main.py"
+ 

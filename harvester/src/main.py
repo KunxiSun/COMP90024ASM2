@@ -57,7 +57,7 @@ if __name__ == "__main__":
     t1 = threading.Thread(target=search, daemon=True)
     t2 = threading.Thread(target=streaming, daemon=True)
   
-    # starting threads
+    # starting threads 
     t1.start()
     t2.start()
 

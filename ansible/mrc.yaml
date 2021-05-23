@@ -25,11 +25,11 @@
     roles:
       # - role: format-volume
       # - role: mount-volume
-      - role: modify-proxy
-#      - role: cloud-install-docker-dependencies
+      # - role: modify-proxy
+      # - role: cloud-install-docker-dependencies
 #      - role: cloud-install-docker
 #      - role: cloud-modify-docker-proxy
 #      - role: cloud-run-couchdb
 #      - role: cloud-setup-cluster
-#      - role: cloud-deploy-harvester
+      - role: cloud-deploy-harvester
 #      - role: cloud-deploy-web

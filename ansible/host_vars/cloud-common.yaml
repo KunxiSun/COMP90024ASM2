@@ -13,3 +13,6 @@ couchdb_name: couchdb
 couchdb_cookie: a192aeb9904e6590849337933b000c99
 couchdb_port: '5984'
 
+# Git
+project_repo: https://github.com/KunxiSun/COMP90024ASM2.git
+project_path: /home/COMP90024ASM2
