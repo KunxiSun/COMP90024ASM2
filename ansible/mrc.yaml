@@ -25,7 +25,7 @@
     roles:
       # - role: format-volume
       # - role: mount-volume
-#      - role: modify-proxy
+      - role: modify-proxy
 #      - role: cloud-install-docker-dependencies
 #      - role: cloud-install-docker
 #      - role: cloud-modify-docker-proxy

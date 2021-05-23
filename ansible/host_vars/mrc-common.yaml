@@ -1,15 +1,14 @@
 # Common vars
 availability_zone: melbourne-qh2-uom
 #docker_vol_size: 10
-data_vol_size: 100
+data_vol_size: 100 #GB
 instance_key_name: id-asm2
 ansible_ssh_private_key_file: ~/.ssh/id-asm2
 interpreter_path: /usr/bin/python3
 # interpreter_path: /Users/devil/opt/anaconda3/bin/python3
 
-
-# instance_count: 4
-# couchdb_cluster_count: 3
+instance_count: 4
+couchdb_cluster_count: 3
 
 instance_image: f8b79936-6616-4a22-b55d-0d0a1d27bceb
 # instance_flavor: uom.mse.1c4g
@@ -40,7 +39,6 @@ security_groups:
   - name: couchdb_cluster
     description: "Open port for communication between nodes in couchdb cluster"
 
-
 remote_security_group_rules:
   - name: remote_connection
     protocol: tcp
@@ -62,7 +60,12 @@ remote_security_group_rules:
     port_range_min: 443 #git
     port_range_max: 443
     remote_ip_prefix: 0.0.0.0/0
-
+  - name: remote_connection
+    protocol: tcp
+    port_range_min: 8080 #git
+    port_range_max: 8080
+    remote_ip_prefix: 0.0.0.0/0
+    
 cluster_security_group_rules:
   - name: couchdb_cluster
     protocol: tcp

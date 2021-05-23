@@ -18,8 +18,8 @@ keywords = [""]
 
 ##### Search API harvester variable
 search_query = ""
-search_since = "2016-01-01"
-search_until = "2020-05-16"
+search_since = "2021-05-16"
+search_until = "2021-05-23"
 
 #####  Australia Coodinates
 #box_au = "112.5,-37.5,154.1,-12.8" 
