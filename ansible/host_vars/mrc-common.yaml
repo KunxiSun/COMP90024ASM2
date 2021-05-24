@@ -4,8 +4,8 @@ availability_zone: melbourne-qh2-uom
 data_vol_size: 100 #GB
 instance_key_name: id-asm2
 ansible_ssh_private_key_file: ~/.ssh/id-asm2
-interpreter_path: /usr/bin/python3
-# interpreter_path: /Users/devil/opt/anaconda3/bin/python3
+#interpreter_path: /usr/bin/python3
+interpreter_path: /Users/devil/opt/anaconda3/bin/python3
 
 # instance_count: 4
 # couchdb_cluster_count: 3
@@ -49,12 +49,12 @@ remote_security_group_rules:
     remote_ip_prefix: 0.0.0.0/0
   - name: remote_connection
     protocol: tcp
-    port_range_min: 443 #git
+    port_range_min: 443
     port_range_max: 443
     remote_ip_prefix: 0.0.0.0/0
   - name: remote_connection
     protocol: tcp
-    port_range_min: 8080 #git
+    port_range_min: 8080
     port_range_max: 8080
     remote_ip_prefix: 0.0.0.0/0
     

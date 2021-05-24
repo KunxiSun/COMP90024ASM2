@@ -1,0 +1,5 @@
+  - name: Store instance ip address in inventory file
+    lineinfile:
+      line: "[{{ item.name }}]\n{{ item.ip_address }}\n"
+      dest: "./inventory/hosts.ini"
+    loop: '{{ instance_ip_address }}'
