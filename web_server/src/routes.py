@@ -1,5 +1,4 @@
 from flask import *
-import requests
 import couchdb
 
 app = Flask(__name__)
