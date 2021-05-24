@@ -1,0 +1,17 @@
+  - name: Create inventory
+    file:
+      path: "./inventory"
+      state: directory
+
+  - name: Delete existed inventory file
+    file:
+      path: "./inventory/hosts.ini"
+      state: absent
+
+  - name: Create inventory file
+    file:
+      path: "./inventory/hosts.ini"
+      state: touch
+
+
+

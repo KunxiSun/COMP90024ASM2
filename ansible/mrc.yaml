@@ -18,7 +18,10 @@
 #  - hosts: localhost
 #    become: yes
 #    roles:
-#      - role: create-inventory
+#      - role: inventory-create
+#      - role: inventory-store-hosts
+#      - role: inventory-add-groups
+
 
   - hosts: dbserver
     become: yes
@@ -29,7 +32,7 @@
     roles:
       # - role: format-volume
       # - role: mount-volume
-      # - role: modify-proxy
+#      - role: modify-proxy
       # - role: cloud-install-docker-dependencies
 #      - role: cloud-install-docker
 #      - role: cloud-modify-docker-proxy
