@@ -7,16 +7,20 @@
     gather_facts: true
 
     roles:
-      - role: openstack-common
-      - role: openstack-images
-      - role: openstack-volume
-      - role: openstack-security-group
+#      - role: openstack-common
+#      - role: openstack-images
+#      - role: openstack-volume
+#      - role: openstack-security-group
 #      - role: local-add-private-key
-      - role: openstack-instance
+#      - role: openstack-instance
       # - role: attach-volume
 
+#  - hosts: localhost
+#    become: yes
+#    roles:
+#      - role: create-inventory
 
-  - hosts: cloud
+  - hosts: dbserver
     become: yes
     vars_files:
       - host_vars/cloud-common.yaml
@@ -31,5 +35,5 @@
 #      - role: cloud-modify-docker-proxy
 #      - role: cloud-run-couchdb
 #      - role: cloud-setup-cluster
-      - role: cloud-deploy-harvester
+#      - role: cloud-deploy-harvester
 #      - role: cloud-deploy-web

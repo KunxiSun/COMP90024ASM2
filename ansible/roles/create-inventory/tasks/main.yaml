@@ -1,0 +1,35 @@
+  - name: Create inventory
+    file:
+      path: "./inventory"
+      state: directory
+
+  - name: Delete existed inventory file
+    file:
+      path: "./inventory/hosts.ini"
+      state: absent
+
+  - name: Create inventory file
+    file:
+      path: "./inventory/hosts.ini"
+      state: touch
+
+  - name: Create webserver group
+    lineinfile:
+      line: "[webserver]\ninstance-1\n"
+      dest: "./inventory/hosts.ini"
+
+  - name: Create couchdb cluster group
+    lineinfile:
+      line: "[dbserver]\ninstance-1\ninstance-2\ninstance-3\n"
+      dest: "./inventory/hosts.ini"
+
+  - name: Create harvester group
+    lineinfile:
+      line: "[harvester]\ninstance-4\n"
+      dest: "./inventory/hosts.ini"
+
+  - name: Store instance ip in inventory file
+    lineinfile:
+      line: "[{{ item.name }}]\n{{ item.ip_address }}\n"
+      dest: "./inventory/hosts.ini"
+    loop: '{{ instance_ip_address }}'
