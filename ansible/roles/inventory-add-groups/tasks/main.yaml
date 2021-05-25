@@ -1,6 +1,11 @@
   - name: Create webserver group
     lineinfile:
-      line: "[webserver:children]\ninstance-1\n"
+      line: "[webserver:children]\ninstance-2\n"
+      dest: "./inventory/hosts.ini"
+
+  - name: Create webapp group
+    lineinfile:
+      line: "[webapp:children]\ninstance-3\n"
       dest: "./inventory/hosts.ini"
 
   - name: Create couchdb cluster group
@@ -11,4 +16,9 @@
   - name: Create harvester group
     lineinfile:
       line: "[harvester:children]\ninstance-4\n"
+      dest: "./inventory/hosts.ini"
+
+  - name: Create cloud group
+    lineinfile:
+      line: "[cloud:children]\ninstance-1\ninstance-2\ninstance-3\ninstance-4\n"
       dest: "./inventory/hosts.ini"

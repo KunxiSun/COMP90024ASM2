@@ -57,6 +57,11 @@ remote_security_group_rules:
     port_range_min: 8080
     port_range_max: 8080
     remote_ip_prefix: 0.0.0.0/0
+  - name: remote_connection
+    protocol: tcp
+    port_range_min: 5000
+    port_range_max: 5000
+    remote_ip_prefix: 0.0.0.0/0
     
 cluster_security_group_rules:
   - name: couchdb_cluster
