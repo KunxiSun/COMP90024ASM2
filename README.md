@@ -4,8 +4,8 @@
 | Surname | Given name | Student ID | Contact                          |
 |---------|------------|------------|----------------------------------|
 | Guan    | Xueting    | 1076010    | guaxg@student.unimelb.edu.au     |
-| Zhou    | Eryi       | 1257309    |                                  |
-| Li      | Yi         | 1103422    |                                  |
+| Zhou    | Eryi       | 1257309    | eryiz@student.unimelb.edu.au     |
+| Li      | Yi         | 1103422    | yi10@student.unimelb.edu.au      |
 | Zhao    | Jian       | 1131605    | jianzhao2@student.unimelb.edu.au |
 | Sun     | Kunxi      | 1225759    | kunxis@student.unimelb.edu.au    |
 
