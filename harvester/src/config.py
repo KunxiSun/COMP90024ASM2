@@ -1,7 +1,14 @@
+import configparser
+
+##### read ip
+cp = configparser.ConfigParser(allow_no_value=True)
+cp.read('ansible/inventory/hosts.ini')
+for ip in cp['instance-1'].keys():
+    couchdb_ip = ip
+
 ##### CouchDB variables
 couchdb_username = "admin"
 couchdb_password = "admin"
-couchdb_ip = "172.26.130.11"
 couchdb_port = "5984"
 couchdb_url = "http://%s:%s@%s:%s"%(couchdb_username,couchdb_password,couchdb_ip,couchdb_port) # don't change this variable
 couchdb_name = "whole_au" 
