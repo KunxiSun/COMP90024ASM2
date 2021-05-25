@@ -3,6 +3,11 @@ ansible_python_interpreter: /usr/bin/python3
 ansible_user: ubuntu
 ansible_ssh_private_key_file: ~/.ssh/id-asm2
 
+#Web server
+web_server_image: emostudio/group57-dataserver:2.0
+
+#Web app
+web_app_image: emostudio/group57-webapp:2.0
 
 # Couch DB
 couchdb_username: admin

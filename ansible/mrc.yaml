@@ -34,13 +34,14 @@
 #      - role: cloud-mount-volume
 #      - role: cloud-modify-instance-proxy
 
-  - hosts: webserver
+  - hosts: webapp
     become: yes
     vars_files:
       - host_vars/cloud-common.yaml
     gather_facts: true
 
     roles:
+      - role: cloud-deploy-webapp
       - role: cloud-deploy-webserver
 
 #  - hosts: dbserver
@@ -56,4 +57,4 @@
 #      - role: cloud-run-couchdb
 #      - role: cloud-setup-cluster
 #      - role: cloud-deploy-harvester
-#      - role: cloud-deploy-web
+
