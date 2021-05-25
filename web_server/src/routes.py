@@ -46,7 +46,12 @@ def delete_tweet_by_id(doc_id):
     db = couch[couchdb_table_name]
     doc = db[doc_id]
     db.delete(doc)
-    return jsonify({"ok":True,"id":doc_id})
-
-
-
+    return jsonify({"ok":True,"id":doc_id})    
+    
+@app.route('/shutdown', methods=['GET'])
+def shutdown():
+    func = request.environ.get('werkzeug.server.shutdown')
+    if func is None:
+        raise RuntimeError('Not running with the Werkzeug Server')
+    func()
+    return 'Server shutting down...'
