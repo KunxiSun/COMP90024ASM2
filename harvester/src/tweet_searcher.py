@@ -15,6 +15,7 @@ def print_time():
 
 
 def search_tweets(query, provinces, geocodes, since, until, db, base_url, search_headers):
+    count = 1
     analyser = Analyser()
     for idx, province in enumerate(provinces):
         # initial start id
@@ -22,7 +23,6 @@ def search_tweets(query, provinces, geocodes, since, until, db, base_url, search
 
         geocode = geocodes[idx]
 
-        count = 1
         while True:
             try:
                 search_params = {
@@ -57,7 +57,7 @@ def search_tweets(query, provinces, geocodes, since, until, db, base_url, search
 
                             # Invoke Li yi's code to analysis new tweet: doc
                             # doc
-                            ana.run(doc, count)
+                            analyser.run(doc, count)
                             db.save(doc)
                             print("Search:%s\n"%(doc))
                             count +=1
