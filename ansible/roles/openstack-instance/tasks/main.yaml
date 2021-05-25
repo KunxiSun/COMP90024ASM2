@@ -33,10 +33,10 @@
       msg: "name: {{ item.name }}; ip: {{ item.ip_address }}"
     loop: '{{ instance_ip_address }}'
 
-#  - name: Add hosts
-#    add_host:
-#      name: '{{ item.openstack.public_v4 }}'
-#      groups: cloud
-#    loop: '{{ os_instance.results }}'
-#    when: item.openstack is defined
+  - name: Add hosts
+    add_host:
+      name: '{{ item.openstack.public_v4 }}'
+      groups: cloud
+    loop: '{{ os_instance.results }}'
+    when: item.openstack is defined
 

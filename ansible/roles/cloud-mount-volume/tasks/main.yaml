@@ -1,16 +1,3 @@
-#
-#  - name: Create the mount point
-#    become: yes
-#    file:
-#      path: "/data"
-#      state: directory
-#
-#  - name: Modify environment file "fstab"
-#    become: yes
-#    blockinfile:
-#      path: "/etc/fstab"
-#      state: present
-#      block: "/dev/vdb /data auto defaults,nofail 0 2"
 
   - name: Mount volume to path "/data"
     become: yes
