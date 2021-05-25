@@ -21,6 +21,9 @@ search_query = ""
 search_since = "2021-05-16"
 search_until = "2021-05-23"
 
+##### analysis
+update_view_count = 10000
+
 #####  Australia Coodinates
 #box_au = "112.5,-37.5,154.1,-12.8" 
 box_melb = "143.947,-38.468,145.066,-36.882"

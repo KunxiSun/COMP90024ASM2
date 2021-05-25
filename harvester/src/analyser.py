@@ -7,7 +7,7 @@ import analysis
 
 class Analyser:
     def run(self, doc, count):
-        if count%10000!=0:
+        if count%config.update_view_count!=0:
             return 
             
         # update views
