@@ -43,13 +43,13 @@
     roles:
       - role: cloud-deploy-webserver
 
-  - hosts: dbserver
-    become: yes
-    vars_files:
-      - host_vars/cloud-common.yaml
-    gather_facts: true
-    
-    roles:
+#  - hosts: dbserver
+#    become: yes
+#    vars_files:
+#      - host_vars/cloud-common.yaml
+#    gather_facts: true
+#
+#    roles:
 #      - role: cloud-install-docker-dependencies
 #      - role: cloud-install-docker
 #      - role: cloud-modify-docker-proxy
