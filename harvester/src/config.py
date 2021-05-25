@@ -1,11 +1,11 @@
 import configparser
 
 ##### read ip
+couchdb_ip = ""
 cp = configparser.ConfigParser(allow_no_value=True)
 cp.read('ansible/inventory/hosts.ini')
 for ip in cp['instance-1'].keys():
     couchdb_ip = ip
-
 ##### CouchDB variables
 couchdb_username = "admin"
 couchdb_password = "admin"
