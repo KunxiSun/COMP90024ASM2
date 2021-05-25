@@ -1,0 +1,56 @@
+
+  - name: Install nginx
+    become: yes
+    apt:
+      name: ['nginx']
+      state: latest
+
+  - name: Copy file
+    become: yes
+    copy:
+      src: default
+      dest: '/etc/nginx/sites-enabled/default'
+      mode: '0644'
+
+  - name: Restart nginx
+    become: yes
+    systemd:
+      name: nginx
+      daemon_reload: yes
+      state: restarted
+
+  - name: Remove existed web app container
+    docker_container:
+      name: "webapp"
+      image: "{{ web_app_image }}"
+      state: absent
+
+  - name: Create web app container
+    docker_container:
+      name: "webapp"
+      image: "{{ web_app_image }}"
+      state: started
+      recreate: true
+      pull: yes
+      ports:
+        - "8080:8080"
+      volumes:
+        - /data
+
+  - name: Remove existed web server container
+    docker_container:
+      name: "webserver"
+      image: "{{ web_server_image }}"
+      state: absent
+
+  - name: Create web server container
+    docker_container:
+      name: "webserver"
+      image: "{{ web_server_image }}"
+      state: started
+      recreate: true
+      pull: yes
+      ports:
+        - "5000:5000"
+      volumes:
+        - /data

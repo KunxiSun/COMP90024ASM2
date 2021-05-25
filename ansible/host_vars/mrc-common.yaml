@@ -7,8 +7,6 @@ ansible_ssh_private_key_file: ~/.ssh/{{instance_key_name}}
 #interpreter_path: /usr/bin/python3
 interpreter_path: /Users/devil/opt/anaconda3/bin/python3
 
-# instance_count: 4
-# couchdb_cluster_count: 3
 
 instance_image: f8b79936-6616-4a22-b55d-0d0a1d27bceb
 instance_flavor_harvester: uom.mse.1c4g
@@ -61,6 +59,11 @@ remote_security_group_rules:
     protocol: tcp
     port_range_min: 5000
     port_range_max: 5000
+    remote_ip_prefix: 0.0.0.0/0
+  - name: remote_connection
+    protocol: tcp
+    port_range_min: 10000
+    port_range_max: 10000
     remote_ip_prefix: 0.0.0.0/0
     
 cluster_security_group_rules:
