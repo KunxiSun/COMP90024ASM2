@@ -54,10 +54,14 @@ def search():
 
     
 if __name__ == "__main__":
-    # t1 = threading.Thread(target=search, daemon=True)
-    # t2 = threading.Thread(target=streaming, daemon=True)
-    t1 = threading.Thread(target=search)
-    t2 = threading.Thread(target=streaming)
+    # run in background
+    t1 = threading.Thread(target=search, daemon=True)
+    t2 = threading.Thread(target=streaming, daemon=True)
+
+    # normal run
+    # t1 = threading.Thread(target=search)
+    # t2 = threading.Thread(target=streaming)
+    
     # starting threads 
     t1.start()
     t2.start()

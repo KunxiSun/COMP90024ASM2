@@ -15,7 +15,7 @@ def print_time():
 
 
 def search_tweets(query, provinces, geocodes, since, until, db, base_url, search_headers):
-    count = 0
+    count = 1
     analyser = Analyser()
     for idx, province in enumerate(provinces):
         # initial start id

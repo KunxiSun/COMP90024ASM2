@@ -7,7 +7,7 @@ from analyser import Analyser
 
 # Use filter stream select location
 def filter_stream(api,db,keywords,boxes):
-    count = 0
+    count = 1
     analyser = Analyser()
     #construct the request to twitter
     request_map={'locations': boxes,"lang": "en","retweeted":"false", 'track':""}
