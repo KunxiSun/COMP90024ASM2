@@ -3,21 +3,23 @@
     <h2 style="color: #30B08F">{{cityName}}</h2>
     <br/>
     <br/>
-    <chart :options=unemployment_chart style="width: 300px; height: 200px" v-show=this.unemployment_chart_show></chart>
-    <div v-show=!this.unemployment_chart_show><br/><br/><h3>Its unemployment rate is not found on Aruin</h3></div>
+    <chart :options=tweet_chart style="width: 300px; height: 200px" v-show=this.chart_show></chart>
+    <chart :options=aurin_chart style="width: 300px; height: 200px" v-show=this.chart_show></chart>
+    <div v-show=!this.chart_show><br/><br/><h3>Its unemployment rate is not found on Aruin</h3></div>
   </div>
 </template>
 <script>
   export default {
     data() {
       return {
-        'unemployment_chart_show': (this.unemployment_chart != null)
+        'chart_show': (this.tweet_chart != null && this.aurin_chart != null)
       }
     },
     name: 'infowindow',
     props: [
       'cityName',
-      'unemployment_chart'
+      'tweet_chart',
+      'aurin_chart'
     ]
   }
 </script>

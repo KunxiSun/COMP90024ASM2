@@ -22,15 +22,15 @@
             <i class="el-icon-s-promotion"></i>
             <span>Map</span>
           </template>
-          <el-menu-item index="/map/melbourne">Melbourne</el-menu-item>
+          <el-menu-item index="/map/australia">Australia</el-menu-item>
         </el-submenu>
-        <el-submenu index="3">
-          <template slot="title">
-            <i class="el-icon-s-promotion"></i>
-            <span>Harvester</span>
-          </template>
-          <el-menu-item index="/harvester/search">Search Tweets</el-menu-item>
-        </el-submenu>
+<!--        <el-submenu index="3">-->
+<!--          <template slot="title">-->
+<!--            <i class="el-icon-s-promotion"></i>-->
+<!--            <span>Harvester</span>-->
+<!--          </template>-->
+<!--          <el-menu-item index="/harvester/search">Search Tweets</el-menu-item>-->
+<!--        </el-submenu>-->
       </el-menu>
     </el-scrollbar>
   </div>

@@ -295,7 +295,8 @@
                 stylers: [{color: '#17263c'}]
               }
             ]})
-        this.map.data.loadGeoJson('mel_geojson.json')
+        this.map.data.loadGeoJson('australia_province.json')
+        //this.map.data.loadGeoJson('mel_geojson.json')
 
         // mouse click event: show grid info
         this.infowindow = new google.maps.InfoWindow()
@@ -360,6 +361,7 @@
 
         // mouse over event: highlight color
          this.map .data.addListener('mouseover', (event) => {
+           alert()
            this.map .data.overrideStyle(event.feature, { fillColor: 'red' })
            let cityName = event.feature.getProperty('SA2_NAME16')
            this.cityNameMessage = this.$message({

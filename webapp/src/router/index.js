@@ -3,7 +3,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import scenarioRouter from './module/scenario'
 import mapRouter from './module/map'
-import harvesterRouter from './module/harvester'
 
 Vue.use(Router)
 
@@ -11,8 +10,7 @@ const router = new Router({
   mode: 'hash',
   routes: [
     scenarioRouter,
-    mapRouter,
-    harvesterRouter
+    mapRouter
   ]
 })
 
