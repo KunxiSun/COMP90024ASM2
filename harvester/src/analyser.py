@@ -2,7 +2,7 @@ import config
 import sys
 import time
 import sys
-sys.path.append("../../analysis")
+sys.path.append("analysis")
 import analysis
 
 class Analyser:
