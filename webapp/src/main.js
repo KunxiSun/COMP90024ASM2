@@ -5,7 +5,6 @@ import router from './router'
 
 import './plugins/element.js'
 import './common/scss/index.scss'
-import './permission'
 import ECharts from 'vue-echarts'
 import 'echarts/lib/chart/bar'
 import 'echarts/lib/chart/pie'

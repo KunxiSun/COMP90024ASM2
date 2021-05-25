@@ -1,7 +1,14 @@
+import configparser
+
+##### read ip
+couchdb_ip = ""
+cp = configparser.ConfigParser(allow_no_value=True)
+cp.read('ansible/inventory/hosts.ini')
+for ip in cp['instance-1'].keys():
+    couchdb_ip = ip
 ##### CouchDB variables
 couchdb_username = "admin"
 couchdb_password = "admin"
-couchdb_ip = "172.26.130.11"
 couchdb_port = "5984"
 couchdb_url = "http://%s:%s@%s:%s"%(couchdb_username,couchdb_password,couchdb_ip,couchdb_port) # don't change this variable
 couchdb_name = "whole_au" 
@@ -20,6 +27,9 @@ keywords = [""]
 search_query = ""
 search_since = "2021-05-16"
 search_until = "2021-05-23"
+
+##### analysis
+update_view_count = 10
 
 #####  Australia Coodinates
 #box_au = "112.5,-37.5,154.1,-12.8" 

@@ -28,19 +28,19 @@
           width="600px">
           <el-form :model="formData" :rules="rules" ref="ruleForm" label-width="100px">
             <el-form-item label="Member 1:" style="height: 50px">
-              <p>Xueting Guan ---- 1076010</p>
+              <p>Xueting Guan ---- 1076010</p >
             </el-form-item>
             <el-form-item label="Member 2:" style="height: 50px">
-              <p>Eryi Zhou ---- 1257309</p>
+              <p>Eryi Zhou ---- 1257309</p >
             </el-form-item>
             <el-form-item label="Member 3:" style="height: 50px">
-              <p>Yi Li ---- 1103422</p>
+              <p>Yi Li ---- 1103422</p >
             </el-form-item>
             <el-form-item label="Member 4:" style="height: 50px">
-              <p>Kunxi Sun ---- 1131605</p>
+              <p>Kunxi Sun ---- 1225759</p >
             </el-form-item>
             <el-form-item label="Member 5:" style="height: 50px">
-              <p>Jian Zhao ---- 1225759 </p>
+              <p>Jian Zhao ---- 1131605 </p >
             </el-form-item>
           </el-form>
         </el-dialog>

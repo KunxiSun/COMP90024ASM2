@@ -2,19 +2,19 @@ import Layout from '@/layout/index.vue'
 
 const mapRouter = {
   path: '/map',
-  name: 'melbourne.vue',
+  name: 'australia.vue',
   meta: {
     title: 'Map'
   },
   component: Layout,
   children: [
     {
-      path: 'melbourne',
-      name: 'melbourne',
+      path: 'australia',
+      name: 'australia',
       meta: {
-        title: 'Melbourne'
+        title: 'Australia'
       },
-      component: () => import('@/views/map/melbourne')
+      component: () => import('@/views/map/australia')
     }
   ]
 }

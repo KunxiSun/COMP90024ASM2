@@ -1,29 +1,12 @@
 import base64
+# from harvester.src.analyser import analyser
 from couchdb.client import Server
 import requests
 import couchdb
 import time
-import sys
 import tweet_cleaner
-
-#####################################################################################
-
-# def server_connection(id, pw, ip, port):
-#     try:
-#         server = couchdb.Server('http://{}:{}@{}:{}/'.format(id, pw, ip, port))
-#         print("CouchDB is connected: " + str(server) + "\n")
-#         return server
-
-#     except Exception as e:
-#         print(e)
-
-
-# def get_db(server, db_name):
-#     try:
-#         db = server[db_name]
-#         return db
-#     except Exception as e:
-#         print(e)
+import sys
+from analyser import Analyser
 
 def print_time():
     now = time.localtime()
@@ -32,6 +15,8 @@ def print_time():
 
 
 def search_tweets(query, provinces, geocodes, since, until, db, base_url, search_headers):
+    count = 1
+    analyser = Analyser()
     for idx, province in enumerate(provinces):
         # initial start id
         since_id = 9999999999999999999999999999999999
@@ -59,6 +44,7 @@ def search_tweets(query, provinces, geocodes, since, until, db, base_url, search
                     for tweet in tweet_data:
 
                         try:
+                            
                             since_id = tweet["id"]
                             tweet["_id"] = tweet["id_str"]
 
@@ -70,11 +56,14 @@ def search_tweets(query, provinces, geocodes, since, until, db, base_url, search
                                 continue 
 
                             # Invoke Li yi's code to analysis new tweet: doc
+                            # doc
+                            analyser.run(doc, count)
                             db.save(doc)
                             print("Search:%s\n"%(doc))
-
+                            count +=1
                             #print("Tweet is collected [ {}_radius ]> {}\n".format(province, tweet["_id"]))
 
+                            time.sleep(5*60)
                         except Exception as e_db:
                             continue
                             # print(str(e_db) + "\n")

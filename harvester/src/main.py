@@ -1,12 +1,12 @@
 import requests
 import base64
 import couchdb
-import sys
 import config
 import tweet_searcher, tweet_streaming
 import threading
 from TwitterAPI import TwitterAPI
 import couchdb 
+
 
 def streaming():
     #load variables from config
@@ -52,11 +52,16 @@ def search():
 
     tweet_searcher.search_tweets(config.search_query, config.states, config.states_geocodes, config.search_since, config.search_until, db, base_url, search_headers)
 
-
+    
 if __name__ == "__main__":
+    # run in background
     t1 = threading.Thread(target=search, daemon=True)
     t2 = threading.Thread(target=streaming, daemon=True)
-  
+
+    # normal run
+    # t1 = threading.Thread(target=search)
+    # t2 = threading.Thread(target=streaming)
+    
     # starting threads 
     t1.start()
     t2.start()

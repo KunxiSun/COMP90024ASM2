@@ -1,54 +1,77 @@
 <template>
   <div id="scenario" style="padding: 20px">
     <el-tabs type="border-card">
-      <el-tab-pane label="Scenario 1">
+      <el-tab-pane label="scenario1">
         <el-container>
-          <el-header height="100px"><br/><h1 style="font-size: 50px">{{scenarios[0].title}}</h1><br/></el-header>
+          <el-header height="150px"><br/><h1 style="font-size: 50px">The attitude towards work and word cloud</h1><br/></el-header>
           <el-container>
-            <el-main style="width: 50%;background-color: #ffffff">
-              <h1 style="font-size: 20px">{{scenarios[0].content}}</h1>
-            </el-main>
-            <el-main width="50%">
-              <chart :options="scenarios[1].chart[0]"></chart>
-              <p>-------------------------------------------------------------------</p>
-              <br/>
-              <chart :options="scenarios[0].chart[1]"></chart>
-            </el-main>
-          </el-container>
-        </el-container>
-      </el-tab-pane>
-      <el-tab-pane label="Scenario 2">
-        <el-container>
-          <el-header height="150px"><br/><h1 style="font-size: 50px">{{scenarios[1].title}}</h1><br/></el-header>
-          <el-container>
-            <el-main style="width: 50%;background-color: #ffffff">
-              <h1 style="font-size: 20px">{{scenarios[1].content}}</h1>
-            </el-main>
-            <el-main width="50%">
-              <chart :options="scenarios[1].chart[0]"></chart>
-              <p>-------------------------------------------------------------------</p>
-              <chart :options="scenarios[1].chart[1]"></chart>
-            </el-main>
-          </el-container>
-        </el-container>
-      </el-tab-pane>
-      <el-tab-pane label="Scenario 3">
-        <el-container>
-          <el-header height="150px"><br/><h1 style="font-size: 50px">{{scenarios[2].title}}</h1><br/></el-header>
-          <el-container>
-            <el-main style="height:40vh;width: 50%;background-color: #ffffff">
-              <h1 style="font-size: 20px">{{scenarios[2].content}}</h1>
-            </el-main>
-            <el-main width="50%">
-              <chart :options="scenarios[2].chart[0]"></chart>
+            <h1 style="font-size: 20px">Sydney</h1>
+            <el-main style="height:50vh;width: 50%;background-color: #ffffff">
+              <chart style="float: left"  :options="charts.syd"></chart>
+              <div style="padding-left: 10%; float: left; height:30vh">
+                <img style="padding-left: 20%; float: left; height:30vh" src="./Sydney_before.png" title="Sydney_before.png" />
+                <p style="font-size: 18px; padding-top: 365px" align = 'center'><b>Wordcloud before covid</b></p>
+              </div>
+              <div style="padding-left: 10%; float: left; height:30vh">
+                <img style="padding-left: 20%; float: left; height:30vh" src="./Sydney_after.png" title="Sydney_after.png" />
+                <p style="font-size: 18px; padding-top: 365px" align = 'center'><b>Wordcloud after covid</b></p>
+              </div>
             </el-main>
           </el-container>
           <el-container>
-            <el-main style="width: 50%;background-color: #ffffff">
-              <chart :options="scenarios[0].chart[0]"></chart>
+            <h1 style="font-size: 20px">Melbourne</h1>
+            <el-main style="height:50vh;width: 50%;background-color: #ffffff">
+              <chart style="float: left"  :options="charts.melb"></chart>
+              <div style="padding-left: 10%; float: left; height:30vh">
+                <img style="padding-left: 20%; float: left; height:30vh" src="./Melbourne_before.png" title="Melbourne_before.png" />
+                <p style="font-size: 18px; padding-top: 365px" align = 'center'><b>Wordcloud before covid</b></p>
+              </div>
+              <div style="padding-left: 10%; float: left; height:30vh">
+                <img style="padding-left: 20%; float: left; height:30vh" src="./Melbourne_after.png" title="Melbourne_after.png" />
+                <p style="font-size: 18px; padding-top: 365px" align = 'center'><b>Wordcloud after covid</b></p>
+              </div>
             </el-main>
-            <el-main width="50%">
-              <chart :options="scenarios[2].chart[1]"></chart>
+          </el-container>
+          <el-container>
+            <h1 style="font-size: 20px">Adelaide</h1>
+            <el-main style="height:50vh;width: 50%;background-color: #ffffff">
+              <chart style="float: left"  :options="charts.ade"></chart>
+              <div style="padding-left: 10%; float: left; height:30vh">
+                <img style="padding-left: 20%; float: left; height:30vh" src="./Adelaide_before.png" title="Adelaide_before.png" />
+                <p style="font-size: 18px; padding-top: 365px" align = 'center'><b>Wordcloud before covid</b></p>
+              </div>
+              <div style="padding-left: 10%; float: left; height:30vh">
+                <img style="padding-left: 20%; float: left; height:30vh" src="./Adelaide_after.png" title="Adelaide_after.png" />
+                <p style="font-size: 18px; padding-top: 365px" align = 'center'><b>Wordcloud after covid</b></p>
+              </div>
+            </el-main>
+          </el-container>
+          <el-container>
+            <h1 style="font-size: 20px">Perth</h1>
+            <el-main style="height:50vh;width: 50%;background-color: #ffffff">
+              <chart style="float: left"  :options="charts.pth"></chart>
+              <div style="padding-left: 10%; float: left; height:30vh">
+                <img style="padding-left: 20%; float: left; height:30vh" src="./Perth_before.png" title="Perth_before.png" />
+                <p style="font-size: 18px; padding-top: 365px" align = 'center'><b>Wordcloud before covid</b></p>
+              </div>
+              <div style="padding-left: 10%; float: left; height:30vh">
+                <img style="padding-left: 20%; float: left; height:30vh" src="./Perth_after.png" title="Perth_after.png" />
+                <p style="font-size: 18px; padding-top: 365px" align = 'center'><b>Wordcloud after covid</b></p>
+              </div>
+            </el-main>
+          </el-container>
+          <el-container>
+            <h1 style="font-size: 20px">Brisbane</h1>
+            <el-main style="height:50vh;width: 50%;background-color: #ffffff">
+              <chart style="float: left"  :options="charts.bris"></chart>
+              <div style="padding-left: 10%; float: left; height:30vh">
+                <img style="padding-left: 20%; float: left; height:30vh" src="./Brisbane_before.png" title="Brisbane_before.png" />
+                <p style="font-size: 18px; padding-top: 365px" align = 'center'><b>Wordcloud before covid</b></p>
+              </div>
+              <div style="padding-left: 10%; float: left; height:30vh">
+                <img style="padding-left: 20%; float: left; height:30vh" src="./Brisbane_after.png" title="Brisbane_after.png" />
+                <p style="font-size: 18px; padding-top: 365px" align = 'center'><b>Wordcloud after covid</b></p>
+              </div>
             </el-main>
           </el-container>
         </el-container>
@@ -58,7 +81,8 @@
 </template>
 
 <script>
-  import { queryScenario, educationBackground, industryOfEmploymentByOccupation, centrelink, socialBenifit } from 'api/scenarioAPI'
+  // eslint-disable-next-line camelcase
+  import { sa_employ_allcity_allyear } from 'api/apis'
   import 'echarts/lib/chart/line'
   import 'echarts/lib/component/polar'
   export default {
@@ -66,123 +90,124 @@
     data () {
       return {
         currentDate: new Date(),
-        scenarios: [],
-        s1_1Data: null,
-        s1_2Data: null,
-        s2_1Data: {
-          x: [],
-          y: []
-        },
-        s2_2Data: {
-          x: [],
-          y: []
-        },
-        s3_1Data: {
-          x: [],
-          y: []
-        },
-        s3_2Data: null
+        charts: {}
       }
     },
     methods: {
       async getPageData () {
-        const res1_1 = await queryScenario({ scenario: 's1' })
-        const res1_2 = await socialBenifit()
-        const res2_1 = await queryScenario({ scenario: 's2' })
-        const res2_2 = await educationBackground()
-        const res3_1 = res2_1
-        const res3_2 = await industryOfEmploymentByOccupation()
-        if (res1_1.isSuccess && res1_2.isSuccess && res2_1.isSuccess && res2_2.isSuccess && res3_1.isSuccess && res3_2.isSuccess) {
-          // S1
-          this.s1_1Data = res1_1.data
-          this.s1_2Data = res1_2.data
-          // S2
-          this.s2_1Data.x = []
-          this.s2_1Data.y = []
-          res2_1.data.forEach(item => {
-            this.s2_1Data.x.push(item['area'])
-            this.s2_1Data.y.push((item['negative'] / (item['negative'] + item['positive'])))
-          })
-          res2_2.data.forEach(item => {
-            this.s2_2Data.x.push(item['cityName'])
-            this.s2_2Data.y.push(item['count'])
-          })
-          // S3
-          this.s3_1Data.x = []
-          this.s3_1Data.y = []
-          res3_1.data.forEach(item => {
-            this.s3_1Data.x.push(item['area'])
-            this.s3_1Data.y.push((item['negative'] / (item['negative'] + item['positive'])))
-          })
-          this.s3_2Data = res3_2.data
-
-          let scenario1 = this.createS1()
-          let scenario2 = this.createS2()
-          let scenario3 = this.createS3()
-          this.scenarios.push(
-            {
-              chart: scenario1,
-              title: 'Impacts of social benefits on career attitude',
-              content: 'Work is an essential part of people ’s lives, and social benefits have the most direct impact to people. So do people in areas with low social benefits  be pessimistic about work?'
-            }
-          )
-          this.scenarios.push(
-            {
-              chart: scenario2,
-              title: 'The relationship between education level and negative job attitude',
-              content: 'Education is a key part of urban construction. A good level of education will create more talents, and life satisfaction will rise accordingly. This scenario make observations and analysis based on education level and people\'s satisfaction with work.'
-            }
-          )
-          this.scenarios.push(
-            {
-              chart: scenario3,
-              title: 'The relationship between different job distribution and occupational satisfaction',
-              content: 'Different work distribution have different social status and economic levels. Therefore, the attitudes of people with different jobs towards work will also be affected. This scenario is based on the proportion of jobs between cities to compare with people\'s satisfaction with their work.'
-            }
-          )
+        // let data = {
+        //   "arch_syd":
+        //     {
+        //       "2019": {"pos": 167, "neg": 68, "avg": 0.11},
+        //       "2020": {"pos": 155, "neg": 83, "avg": 0.0547},
+        //       "2021": {"pos": 48, "neg": 21, "avg": 0.0698}
+        //     },
+        //   "arch_melb":
+        //     {
+        //       "2019": {"pos": 69, "neg": 29, "avg": 0.0871},
+        //       "2020": {"pos": 76, "neg": 42, "avg": 0.0853},
+        //       "2021": {"pos": 41, "neg": 21, "avg": 0.0928}
+        //     },
+        //   "arch_ade":
+        //     {
+        //       "2019": {"pos": 74, "neg": 36, "avg": 0.0718},
+        //       "2020": {"pos": 94, "neg": 48, "avg": 0.0591},
+        //       "2021": {"pos": 75, "neg": 29, "avg": 0.1271}
+        //     },
+        //   "arch_pth":
+        //     {
+        //       "2019": {"pos": 32, "neg": 13, "avg": 0.087},
+        //       "2020": {"pos": 48, "neg": 27, "avg": 0.0745},
+        //       "2021": {"pos": 14, "neg": 9, "avg": 0.0867}
+        //     },
+        //   "arch_bris":
+        //     {
+        //       "2019": {"pos": 86, "neg": 32, "avg": 0.0981},
+        //       "2020": {"pos": 71, "neg": 36, "avg": 0.0747},
+        //       "2021": {"pos": 26, "neg": 13, "avg": 0.0832}
+        //     }
+        // }
+        this.charts = {
+          syd: {},
+          melb: {},
+          ade: {},
+          pth: {},
+          bris: {}
+        }
+        const ret = await sa_employ_allcity_allyear()
+        let data = null
+        if (ret.isSuccess) {
+          data = ret.data
         } else {
           this.getPageData()
         }
+        this.charts.syd = this.createPieChart(data.arch_syd)
+        this.charts.melb = this.createPieChart(data.arch_melb)
+        this.charts.ade = this.createPieChart(data.arch_ade)
+        this.charts.pth = this.createPieChart(data.arch_pth)
+        this.charts.bris = this.createPieChart(data.arch_bris)
       },
-      createS1 () {
-        // chart 1
-        let source = [
-          ['Sentiment'],
-          ['Positive'],
-          ['Negative']
-        ]
-        let series = []
-
-        let title = []
-
-        let index = 0
-        let gap = 0
-        let row = 1
-        let column = 0
-        this.s1_1Data.forEach(item => {
-          column += 1
-          if (column === 3) {
-            row += 1
-          }
-          if (column === 2) {
-            index = 1
-          } else {
-            index = 0
-          }
-          if (column > 2) {
-            column = 1
-          }
-          if (row > 1 && column === 1) {
-            gap += 12
-          }
-          item['total'] = item.positive + item.negative
-          source[0].push(item.area)
-          source[1].push((item.positive * 100 / item.total).toFixed(2))
-          source[2].push((item.negative * 100 / item.total).toFixed(2))
-          series.push({
+      createPieChart (data) {
+        let chart = {
+          legend: {
+            top: '3.5%'
+          },
+          tooltip: {
+            trigger: 'item',
+            formatter: '{b}'
+          },
+          title: [{
+            show: true,
+            text: 'The attitude towards work',
+            x: 'center',
+            y: 'bottom'
+          },
+            {
+              text: 2019,
+              left: '25%',
+              top: '70%',
+              textAlign: 'center',
+              textStyle:{
+                fontStyle:'normal',
+                fontWeight:"lighter",
+                fontFamily:"san-serif",
+                fontSize:18
+              }
+            },
+            {
+              text: 2020,
+              left: '50%',
+              top: '70%',
+              textAlign: 'center',
+              textStyle:{
+                fontStyle:'normal',
+                fontWeight:"lighter",
+                fontFamily:"san-serif",
+                fontSize:18
+              }
+            },
+            {
+              text: 2021,
+              left: '75%',
+              top: '70%',
+              textAlign: 'center',
+              textStyle:{
+                fontStyle:'normal',
+                fontWeight:"lighter",
+                fontFamily:"san-serif",
+                fontSize:18
+              }
+            }
+          ],
+          // title: 'The attitude towards work',
+          series: [{
             type: 'pie',
             radius: 60,
-            center: [(20 * (row) + gap).toString() + '%', (28 * (column) + 15 * (index)).toString() + '%'],
+            center: ['25%','50%'],
+            data:[
+              {value: data['2019']['pos'], name:'Postive'},
+              {value: data['2019']['neg'], name:'Negative'}
+            ],
             itemStyle: {
               emphasis: {
                 label: {
@@ -203,106 +228,73 @@
             },
             encode: {
               itemName: 'Sentiment',
-              value: item.area
+              value: 'Melbourne'
             }
-          })
-          title.push({
-            text: 'User Attitude for Covid',
-            x: 'center',
-            y: 'bottom',
-            textAlign: 'left',
-            textStyle: {
-              fontStyle: 'normal',
-              fontWeight: 'bold',
-              fontFamily: 'san-serif',
-              fontSize: 18
-            }
-          })
-          title.push({
-            text: item.area,
-            left: (20 * (row) + gap).toString() + '%',
-            top: (44 * (column) + (-2) * (index)).toString() + '%',
-            textAlign: 'center',
-            textStyle: {
-              fontStyle: 'normal',
-              fontWeight: 'lighter',
-              fontFamily: 'san-serif',
-              fontSize: 18
-            }
-          })
-        })
-        let scenario1 = []
-        scenario1[0] = {
-          legend: {
-            top: '3.5%'
           },
-          tooltip: {
-            trigger: 'item',
-            formatter: '{b}'
-          },
-          dataset: {
-            source: source
-          },
-          title: title,
-          series: series
+            {
+              type: 'pie',
+              radius: 60,
+              center: ['50%','50%'],
+              data:[
+                {value: data['2020']['pos'], name:'Postive'},
+                {value: data['2020']['neg'], name:'Negative'}
+              ],
+              itemStyle: {
+                emphasis: {
+                  label: {
+                    show: true,
+                    formatter: '{d}%',
+                    position: 'center'
+                  },
+                  labelLine: {
+                    show: false
+                  }
+                }
+              },
+              label: {
+                normal: {
+                  position: 'inner',
+                  show: false
+                }
+              },
+              encode: {
+                itemName: 'Sentiment',
+                value: 'Melbourne'
+              }
+            },
+            {
+              type: 'pie',
+              radius: 60,
+              center: ['75%','50%'],
+              data:[
+                {value: data['2021']['pos'], name:'Postive'},
+                {value: data['2021']['neg'], name:'Negative'}
+              ],
+              itemStyle: {
+                emphasis: {
+                  label: {
+                    show: true,
+                    formatter: '{d}%',
+                    position: 'center'
+                  },
+                  labelLine: {
+                    show: false
+                  }
+                }
+              },
+              label: {
+                normal: {
+                  position: 'inner',
+                  show: false
+                }
+              },
+              encode: {
+                itemName: 'Sentiment',
+                value: 'Melbourne'
+              }
+            }]
         }
-        // chart 2
-        let source1_2 = []
-        let i = 0
-        for (let city in this.s1_2Data) {
-          if (source1_2.length === 0) {
-            source1_2.push(['type'])
-            for (let key1 in this.s1_2Data[city]) {
-              source1_2[i].push(key1)
-            }
-            i += 1
-            source1_2.push([city])
-            for (let key2 in this.s1_2Data[city]) {
-              source1_2[i].push(this.s1_2Data[city][key2])
-            }
-            i += 1
-          } else {
-            source1_2.push([city])
-            for (let key2 in this.s1_2Data[city]) {
-              source1_2[i].push(this.s1_2Data[city][key2])
-            }
-            i += 1
-          }
-        }
-        console.log(source1_2)
-        scenario1[1] = {
-          title: {
-            text: 'Social Benefits',
-            x: 'center',
-            y: 'bottom',
-            textAlign: 'left',
-            textStyle: {
-              fontStyle: 'normal',
-              fontWeight: 'bold',
-              fontFamily: 'san-serif',
-              fontSize: 18
-            }
-          },
-          legend: {
-            top: '5%'
-          },
-          tooltip: {
-            trigger: 'item'
-          },
-          dataset: {
-            source: source1_2
-          },
-          xAxis: {type: 'category'},
-          yAxis: {},
-          // Declare several bar series, each will be mapped
-          // to a column of dataset.source by default.
-          series: [
-            {type: 'bar'},
-            {type: 'bar'},
-            {type: 'bar'}
-          ]
-        }
-        return scenario1
+        return chart
       },
       createS2 () {
         let scenario2 = []

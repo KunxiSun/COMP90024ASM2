@@ -2,11 +2,13 @@ import TwitterAPI
 import couchdb
 import time
 import tweet_cleaner
+from analyser import Analyser
 
 
 # Use filter stream select location
 def filter_stream(api,db,keywords,boxes):
-        
+    count = 1
+    analyser = Analyser()
     #construct the request to twitter
     request_map={'locations': boxes,"lang": "en","retweeted":"false", 'track':""}
 
@@ -29,11 +31,13 @@ def filter_stream(api,db,keywords,boxes):
                 if not doc:                 
                     print ("didn't get ideal response, try again")
                     continue 
-
+                analyser.run(doc, count)
                 # Invoke Li yi's code to analysis new tweet: doc
-                
+                #foo(doc)
                 db.save(doc)
                 print("Streaming:%s\n"%(doc))
+                count+=1
+                time.sleep(5*60)
 
         # Ignore the existence of the same id
         # Due to limit speed to harvest tweets, program has to sleep for a while
