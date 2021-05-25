@@ -22,7 +22,7 @@ search_since = "2021-05-16"
 search_until = "2021-05-23"
 
 ##### analysis
-update_view_count = 10000
+update_view_count = 10
 
 #####  Australia Coodinates
 #box_au = "112.5,-37.5,154.1,-12.8" 
