@@ -28,11 +28,23 @@ Before you deploy the system:
         cd ansible   
 
 * Run the command 
+    To deploy instance on MRC
   
          . ./<your open rc file>; ansible-playbook mrc.yaml --ask-become-pass
 
     Note that you are required to input the mrc password, and BECOME password. mrc password can be generated in mrc setting. BECOME password is your sudo password.
 
+    T
+
+    TO deploy couchdb cluster on instance
+        
+        ansible-playbook web.yaml --ask-become-pass -i inventory/hosts.ini
+    
+    TO deploy web app and web server on instance
+        
+        ansible-playbook web.yaml --ask-become-pass -i inventory/hosts.ini
+    
+  
 ## Demo video
 
 

@@ -1,17 +1,21 @@
 import configparser
 
-##### read ip
+
+
+##### CouchDB variables
 couchdb_ip = ""
 cp = configparser.ConfigParser(allow_no_value=True)
 cp.read('ansible/inventory/hosts.ini')
 for ip in cp['instance-1'].keys():
     couchdb_ip = ip
-##### CouchDB variables
 couchdb_username = "admin"
 couchdb_password = "admin"
 couchdb_port = "5984"
 couchdb_url = "http://%s:%s@%s:%s"%(couchdb_username,couchdb_password,couchdb_ip,couchdb_port) # don't change this variable
 couchdb_name = "whole_au" 
+
+##### read ip
+
 
 ##### Tweeter API keys
 consumer_key = "2KYzayBTxaykRUmDrDgYWeW2D"

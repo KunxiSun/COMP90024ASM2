@@ -6,6 +6,7 @@ import tweet_searcher, tweet_streaming
 import threading
 from TwitterAPI import TwitterAPI
 import couchdb 
+import configparser
 
 
 def streaming():
@@ -54,14 +55,15 @@ def search():
 
     
 if __name__ == "__main__":
-    # run in background
+    print(config.couchdb_ip, config.couchdb_url)
+
+    # # run in background
     t1 = threading.Thread(target=search, daemon=True)
     t2 = threading.Thread(target=streaming, daemon=True)
-
-    # normal run
+    #normal run
     # t1 = threading.Thread(target=search)
     # t2 = threading.Thread(target=streaming)
-    
+
     # starting threads 
     t1.start()
     t2.start()
