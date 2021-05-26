@@ -6,9 +6,9 @@ tweepy
 couchdb
 TwitterAPI
 #### File
-Configuration Environment in config.py
-Main in twitterHarvester.py
-Use Streaming get tweets in TwitterStream.p
+Configuration Environment in config.py \\
+Use Streaming get tweets in TwitterStream.py\\
+Full archive searching in tweet_arch_searcher.py\\
 
 #### Output
 
