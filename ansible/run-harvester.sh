@@ -1,0 +1,1 @@
+ansible-playbook --ask-become-pass harvester.yaml -i inventory/hosts.ini
