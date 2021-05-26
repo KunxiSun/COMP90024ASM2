@@ -24,9 +24,10 @@ class Analyser:
         time.sleep(25*60)
 
         # analysis
-        analysis.twitter_analysis(config.couchdb_ip,"allcity","allyear",update=False)
-        analysis.SentimentAnalysis(config.couchdb_ip,"allcity","allyear")
-        analysis.AURIN_analysis(config.couchdb_ip,"allcity")
+        couchdb_ip = config.get_couchdb_ip()
+        analysis.twitter_analysis(ccouchdb_ip,"allcity","allyear",update=False)
+        analysis.SentimentAnalysis(couchdb_ip,"allcity","allyear")
+        analysis.AURIN_analysis(couchdb_ip,"allcity")
 
     def _get_dbname_by_location(self, doc):
         if doc == None:
