@@ -14,18 +14,19 @@ class Analyser:
             
         # update views
         #print(doc)
+        couchdb_ip = config.get_couchdb_ip()
+
         dbname = self._get_dbname_by_location(doc)
         year = self._get_year_by_time(doc)
         print("check name",year, dbname)
-        analysis.twitter_analysis(config.couchdb_ip, dbname, year, update=True)
+        analysis.twitter_analysis(couchdb_ip, dbname, year, update=True)
         
 
         # sleep 25 min to wait views in couchdb are updated
         time.sleep(25*60)
 
         # analysis
-        couchdb_ip = config.get_couchdb_ip()
-        analysis.twitter_analysis(ccouchdb_ip,"allcity","allyear",update=False)
+        analysis.twitter_analysis(couchdb_ip,"allcity","allyear",update=False)
         analysis.SentimentAnalysis(couchdb_ip,"allcity","allyear")
         analysis.AURIN_analysis(couchdb_ip,"allcity")
 

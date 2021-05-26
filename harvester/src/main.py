@@ -55,14 +55,15 @@ def search():
 
     
 if __name__ == "__main__":
-    print(config.couchdb_ip, config.couchdb_url)
+    print("Read coucdb ip from Ansible inventory: ",config.couchdb_ip)
+    print("couchdb url:", config.couchdb_url)
 
     # # run in background
-    t1 = threading.Thread(target=search, daemon=True)
-    t2 = threading.Thread(target=streaming, daemon=True)
+    # t1 = threading.Thread(target=search, daemon=True)
+    # t2 = threading.Thread(target=streaming, daemon=True)
     #normal run
-    # t1 = threading.Thread(target=search)
-    # t2 = threading.Thread(target=streaming)
+    t1 = threading.Thread(target=search)
+    t2 = threading.Thread(target=streaming)
 
     # starting threads 
     t1.start()
