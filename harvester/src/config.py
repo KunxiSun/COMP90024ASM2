@@ -24,6 +24,10 @@ access_token = "1254697631600660480-12cqVeP49fcoL5RfmaDoeW0DjlRjvf"
 access_token_secret = "N0gfaDsqvwPlLVlRjGT0OSfWiJnMI9BRC9sSf6XfpBo8R" 
 bearer_token = "AAAAAAAAAAAAAAAAAAAAAJa9PAEAAAAAfXT1jiOVkwBjum1E1H5q7T%2F5nIE%3DpLoB8Be1X1EhUG1sZQrrRZ5tOsd1CDXPkFAi7vuXJc4b0fPMNc"
 
+consumer_key_a = "vJ1BzpM05fhAIkS7gDA4KQ3g1"
+
+consumer_key_a = "E386YxzDljKHnsr7e32uuJtiE62RCBiSHPvEkvpBBc7nhhGulW"
+
 ##### Streaming API harvester variable
 keywords = [""] 
 
