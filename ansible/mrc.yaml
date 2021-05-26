@@ -7,42 +7,32 @@
     gather_facts: true
 
     roles:
-#      - role: openstack-common
-#      - role: openstack-images
-#      - role: openstack-volume
-#      - role: openstack-security-group
-#      - role: local-add-private-key
-#      - role: openstack-instance
-#      - role: openstack-attach-volume
+      - role: openstack-common
+      - role: openstack-images
+      - role: openstack-volume
+      - role: openstack-security-group
+      - role: local-add-private-key
+      - role: openstack-instance
+      - role: openstack-attach-volume
 
-#  - hosts: localhost
-#    become: yes
-#
-#    roles:
-#      - role: inventory-create
-#      - role: inventory-store-hosts
-#      - role: inventory-add-groups
+  - hosts: localhost
+    become: yes
 
-#  - hosts: cloud
-#    become: yes
-#    vars_files:
-#      - host_vars/cloud-common.yaml
-#    gather_facts: true
-#
-#    roles:
-#      - role: cloud-format-volume
-#      - role: cloud-mount-volume
-#      - role: cloud-modify-instance-proxy
+    roles:
+      - role: inventory-create
+      - role: inventory-store-hosts
+      - role: inventory-add-groups
 
-  - hosts: webapp
+  - hosts: cloud
     become: yes
     vars_files:
       - host_vars/cloud-common.yaml
     gather_facts: true
 
     roles:
-      - role: cloud-deploy-webapp
-      - role: cloud-deploy-webserver
+      - role: cloud-format-volume
+      - role: cloud-mount-volume
+      - role: cloud-modify-instance-proxy
 
 #  - hosts: dbserver
 #    become: yes
@@ -57,4 +47,15 @@
 #      - role: cloud-run-couchdb
 #      - role: cloud-setup-cluster
 #      - role: cloud-deploy-harvester
+
+
+#  - hosts: webapp
+#    become: yes
+#    vars_files:
+#      - host_vars/cloud-common.yaml
+#    gather_facts: true
+#
+#    roles:
+#      - role: cloud-deploy-webapp
+
 

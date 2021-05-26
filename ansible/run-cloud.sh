@@ -1,0 +1,1 @@
+ansible-playbook --ask-become-pass cloud.yaml -i inventory/hosts.ini

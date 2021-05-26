@@ -1,0 +1,10 @@
+  - hosts: cloud
+    become: yes
+    vars_files:
+      - host_vars/cloud-common.yaml
+    gather_facts: true
+
+    roles:
+      - role: cloud-format-volume
+      - role: cloud-mount-volume
+      - role: cloud-modify-instance-proxy

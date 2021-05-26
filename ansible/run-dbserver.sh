@@ -1,0 +1,1 @@
+ansible-playbook --ask-become-pass dbserver.yaml -i inventory/hosts.ini
