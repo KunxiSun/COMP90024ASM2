@@ -1,7 +1,7 @@
 # COMP90024ASM2
 
 ## Contributor
-* Guan Xueting (https://github.com/Snowy0647)   SID:1076010   Email:guaxg@student.unimelb.edu.au    
+* [Guan Xueting] (https://github.com/Snowy0647)   SID:1076010   Email:guaxg@student.unimelb.edu.au    
 * Zhou Eryi     SID:1257309    Email:eryiz@student.unimelb.edu.au     
 * Li Yi         SID:1103422    Email:yi10@student.unimelb.edu.au     
 * Zhao Jian     SID:1131605    Email: jianzhao2@student.unimelb.edu.au 
