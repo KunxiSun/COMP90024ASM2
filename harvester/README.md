@@ -13,9 +13,9 @@ config.py: Configuration Environment
 tweet_streaming.py: Use Streaming get tweets      
 tweet_searcher.py: Use search get tweets      
 tweet_cleaner.py: Simple clean the raw response            
-tweet_arch_searcher.py: Full archive searching 
-analyser.py: Connect to Back-end Analysis
-main: Multithreading Run
+tweet_arch_searcher.py: Full archive searching              
+analyser.py: Connect to Back-end Analysis            
+main: Multithreading Run            
 ### Output
 Id: tweet id     
 user_id     
