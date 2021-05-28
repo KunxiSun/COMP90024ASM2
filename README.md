@@ -2,7 +2,7 @@
 
 ## Contributor
 | Surname| Given name | Student ID | Contact                          |
-|---------------------|------------|----------------------------------|
+|--------|------------|------------|--------------------------------—-|
 | Guan     Xueting    | 1076010    | guaxg@student.unimelb.edu.au     |
 | Zhou     Eryi       | 1257309    | eryiz@student.unimelb.edu.au     |
 | Li       Yi         | 1103422    | yi10@student.unimelb.edu.au      |
