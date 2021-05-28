@@ -43,6 +43,9 @@ Before you deploy the system:
     TO deploy web app and web server on instance
         
         ansible-playbook web.yaml --ask-become-pass -i inventory/hosts.ini
+## Presentation slides
+
+
 ## System Architecture
 
 ![image](https://github.com/KunxiSun/COMP90024ASM2/blob/main/img/Architecture.png)
@@ -78,3 +81,8 @@ Before you deploy the system:
 * matplotlib
 * textblob
 * Couchdb
+## Instance
+* Instance 1:
+* Instance 2:
+* Instnace 3:
+* Instance 4:
