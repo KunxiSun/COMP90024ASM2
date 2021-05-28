@@ -45,7 +45,7 @@ Before you deploy the system:
         ansible-playbook web.yaml --ask-become-pass -i inventory/hosts.ini
 ## System Architecture
 
-
+![image](https://github.com/KunxiSun/COMP90024ASM2/blob/main/img/Architecture.png)
 
 
   
