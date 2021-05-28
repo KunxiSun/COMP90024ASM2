@@ -52,16 +52,22 @@ https://docs.google.com/presentation/d/13BIvwDQTOCIpdS13aw6p4WH74d4aI65FDofiA2Vr
 * The architecture of system is shown in the figure above, Harvest derives the data from Twitter through API and store the data into CouchDB dataset. The analyzer such as MapReduce and machine learning process the data and store into files. Web app can get the data through sever which connected to databased. The visualization is present on the Web app
 ## Front End (http://172.26.134.30:8080)
 * The front end is built in JavaScript, Css and HTML using the web framework Vue. This component-based development technology was chosen as it provided easy access to libraries that facilitated the use of google maps which are used to demonstrate map. In addition, Vue can provide convenient visualization tools which can help with drawing graphs.
+## Back End
+* Data server
+* Machine learning Server
+* Harvest
+## Database
+* Three couchdb database in instance 1~3 are combined as a cluster
 
   
 ## Demo video
-* Harvester
+### Harvester
 * Part1: https://youtu.be/7amPRdHpvN4
-* Create the instance (Ansible)
+### Create the instance (Ansible)
 * Part2: https://youtu.be/YdCYpG4NP7s
-* Web app (Ansible)
+### Web app (Ansible)
 * Part3: https://youtu.be/VWbJ1dKj5ek
-* Couchdb and MapReduce
+### Couchdb and MapReduce
 * Part4: https://youtu.be/BgTXzn-5bsc
 
 
