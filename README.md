@@ -43,13 +43,21 @@ Before you deploy the system:
     TO deploy web app and web server on instance
         
         ansible-playbook web.yaml --ask-become-pass -i inventory/hosts.ini
-    
+## System Architecture
+
+
+
+
   
 ## Demo video
-Part1: https://youtu.be/7amPRdHpvN4
-Part2: https://youtu.be/YdCYpG4NP7s
-Part3: https://youtu.be/VWbJ1dKj5ek
-Part4: https://youtu.be/BgTXzn-5bsc
+* Harvester
+*Part1: https://youtu.be/7amPRdHpvN4
+* Create the instance
+*Part2: https://youtu.be/YdCYpG4NP7s
+*Web app
+*Part3: https://youtu.be/VWbJ1dKj5ek
+* Couchdb and MapReduce
+*Part4: https://youtu.be/BgTXzn-5bsc
 
 
 ## Dependencies:
