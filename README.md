@@ -50,7 +50,8 @@ https://docs.google.com/presentation/d/13BIvwDQTOCIpdS13aw6p4WH74d4aI65FDofiA2Vr
 ![image](https://github.com/KunxiSun/COMP90024ASM2/blob/main/img/Architecture.png)
 * The CouchDB cluster is deployed at the first three instances. Web server and web app are deployed on the second instances. The fourth instance is used to constantly run the harvester to retrieve data from Twitter API.
 * The architecture of system is shown in the figure above, Harvest derives the data from Twitter through API and store the data into CouchDB dataset. The analyzer such as MapReduce and machine learning process the data and store into files. Web app can get the data through sever which connected to databased. The visualization is present on the Web app
-* Front End (http://172.26.134.30:8080)
+## Front End (http://172.26.134.30:8080)
+* The front end is built in JavaScript, Css and HTML using the web framework Vue. This component-based development technology was chosen as it provided easy access to libraries that facilitated the use of google maps which are used to demonstrate map. In addition, Vue can provide convenient visualization tools which can help with drawing graphs.
 
   
 ## Demo video
