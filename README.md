@@ -34,7 +34,6 @@ Before you deploy the system:
 
     Note that you are required to input the mrc password, and BECOME password. mrc password can be generated in mrc setting. BECOME password is your sudo password.
 
-    T
 
     TO deploy couchdb cluster on instance
         
@@ -82,7 +81,7 @@ https://docs.google.com/presentation/d/13BIvwDQTOCIpdS13aw6p4WH74d4aI65FDofiA2Vr
 * textblob
 * Couchdb
 ## Instance
-* Instance 1:
-* Instance 2:
-* Instnace 3:
-* Instance 4:
+* Instance 1: 172.26.130.11
+* Instance 2: 172.26.134.30
+* Instnace 3: 172.26.130.62
+* Instance 4: 172.26.129.117
