@@ -81,6 +81,13 @@ https://docs.google.com/presentation/d/13BIvwDQTOCIpdS13aw6p4WH74d4aI65FDofiA2Vr
 * matplotlib
 * textblob
 * Couchdb
+### Docker files
+* CouchDB
+* https://hub.docker.com/_/couchdb
+* Web app image
+* https://hub.docker.com/r/emostudio/group57-webapp
+* Data server
+* https://hub.docker.com/r/emostudio/group57-dataserver
 ## Instance
 * Instance 1: 172.26.130.11
 * Instance 2: 172.26.134.30
