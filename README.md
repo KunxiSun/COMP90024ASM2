@@ -51,13 +51,13 @@ Before you deploy the system:
   
 ## Demo video
 * Harvester
-*Part1: https://youtu.be/7amPRdHpvN4
-* Create the instance
-*Part2: https://youtu.be/YdCYpG4NP7s
-*Web app
-*Part3: https://youtu.be/VWbJ1dKj5ek
+* Part1: https://youtu.be/7amPRdHpvN4
+* Create the instance (Ansible)
+* Part2: https://youtu.be/YdCYpG4NP7s
+* Web app (Ansible)
+* Part3: https://youtu.be/VWbJ1dKj5ek
 * Couchdb and MapReduce
-*Part4: https://youtu.be/BgTXzn-5bsc
+* Part4: https://youtu.be/BgTXzn-5bsc
 
 
 ## Dependencies:
