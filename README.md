@@ -63,6 +63,7 @@ Before you deploy the system:
 ## Dependencies:
 ### Ansible
 * Ansible
+* Docker
 
 ### Harvester:
 * TwitterAPI
@@ -76,4 +77,4 @@ Before you deploy the system:
 * numpy
 * matplotlib
 * textblob
-* couchdb
+* Couchdb
