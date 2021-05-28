@@ -1,20 +1,11 @@
 # COMP90024ASM2
 
 ## Contributor
-| Surname| Given name | Student ID | Contact                          |
-|--------|------------|------------|--------------------------------—-|
-| Guan   |  Xueting   | 1076010    | guaxg@student.unimelb.edu.au     |
-| Zhou   | Eryi       | 1257309    | eryiz@student.unimelb.edu.au     |
-| Li     |  Yi        | 1103422    | yi10@student.unimelb.edu.au      |
-| Zhao   |  Jian      | 1131605    | jianzhao2@student.unimelb.edu.au |
-| Sun    |  Kunxi     | 1225759    | kunxis@student.unimelb.edu.au    |
-
-
-* Guan Xueting   1076010    guaxg@student.unimelb.edu.au    
-* Zhou Eryi     1257309    eryiz@student.unimelb.edu.au     
-* Li Yi         1103422    yi10@student.unimelb.edu.au     
-* Zhao Jian      1131605     jianzhao2@student.unimelb.edu.au 
-* Sun  Kunxi     1225759     kunxis@student.unimelb.edu.au   
+* Guan Xueting   SID:1076010   Email:guaxg@student.unimelb.edu.au    
+* Zhou Eryi     SID:1257309    Email:eryiz@student.unimelb.edu.au     
+* Li Yi         SID:1103422    Email:yi10@student.unimelb.edu.au     
+* Zhao Jian     SID:1131605    Email: jianzhao2@student.unimelb.edu.au 
+* Sun  Kunxi    SID:1225759    Email: kunxis@student.unimelb.edu.au   
 
 
 ## How to auto deploy the system
