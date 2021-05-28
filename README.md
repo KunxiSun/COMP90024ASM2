@@ -46,6 +46,10 @@ Before you deploy the system:
     
   
 ## Demo video
+Part1: https://youtu.be/7amPRdHpvN4
+Part2: https://youtu.be/YdCYpG4NP7s
+Part3: https://youtu.be/VWbJ1dKj5ek
+Part4: https://youtu.be/BgTXzn-5bsc
 
 
 ## Dependencies:
@@ -57,8 +61,8 @@ Before you deploy the system:
 * couchdb
 
 ### Webapp:
-* Node.js
-* npm
+* React
+* Nginx Proxy
 
 ### Data analysis
 * numpy
