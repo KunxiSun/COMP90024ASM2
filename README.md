@@ -44,7 +44,7 @@ Before you deploy the system:
         
         ansible-playbook web.yaml --ask-become-pass -i inventory/hosts.ini
 ## Presentation slides
-
+https://docs.google.com/presentation/d/13BIvwDQTOCIpdS13aw6p4WH74d4aI65FDofiA2VryDg/edit?usp=sharing
 
 ## System Architecture
 
